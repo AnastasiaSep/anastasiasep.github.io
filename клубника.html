@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BerryBox — Клубника в шоколаде</title>
+    <meta name="description" content="BerryBox - Клубника в бельгийском шоколаде ручной работы. Идеальные подарки для любого события. Доставка.">
+    <meta name="keywords" content="клубника в шоколаде, подарки, шоколад">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="фавикон.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="фавикон.png"> 
+    <link rel="stylesheet" href="клубника.css">
+    <script src="https://unpkg.com/imask"></script>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">🍓 BerryBox</div>
+            <ul>
+                <li><a href="#hero">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#products">Каталог</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#contact">Контакты</a></li>
+                <li>
+                    <div class="cart-icon" onclick="toggleCart()">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Корзина -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h2>Корзина</h2>
+            <span class="close-cart" onclick="toggleCart()">×</span>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <div class="empty-cart">
+                <div class="empty-cart-icon">🛒</div>
+                <p>Корзина пуста</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Итого:</span>
+                <span id="cartTotal">0₽</span>
+            </div>
+            <button class="checkout-btn btn-checkout">Оформить заказ</button>
+
+
+        </div>
+    </div>
+
+    <!-- Окно деталей продукта -->
+    <div class="product-detail-modal" id="productDetailModal" onclick="closeDetailModalOnOverlay(event)">
+        <div class="product-detail-content">
+            <div class="product-detail-image" id="detailModalImage">
+                🍓
+            </div>
+            <div class="product-detail-info">
+                <button class="close-detail-modal" onclick="closeDetailModal()">×</button>
+                
+                <h1 class="product-detail-title" id="detailModalTitle">Набор "Сладкая девочка"</h1>
+                <div class="product-detail-price" id="detailModalPrice">3 290 ₽</div>
+
+                <div class="product-detail-quantity-selector">
+                    <label class="detail-quantity-label">Кол-во ягод</label>
+                    
+
+                    <div class="detail-select-with-icon" id="detailSelectWrapper" onclick="toggleDetailDropdown()">
+                        <div class="detail-select-icon" id="detailSelectIcon">🍓</div>
+                        <div class="detail-select-text" id="detailSelectedText">S (18-20)</div>
+                        <div class="detail-select-arrow">▼</div>
+                    </div>
+
+
+
+                    <select id="detailQuantitySelect" style="display: none;">
+                        <!-- Опции будут добавлены динамически -->
+                    </select>
+                </div>
+
+                <div class="product-detail-counter">
+                    <button class="counter-btn" onclick="decreaseDetailCounter()">−</button>
+                    <span class="counter-value" id="detailCounter">1</span>
+                    <button class="counter-btn" onclick="increaseDetailCounter()">+</button>
+                </div>
+
+                <div class="product-detail-actions">
+                    <button class="btn-add-to-cart-detail" onclick="addToCartFromDetail()">
+                        В корзину
+                    </button>
+                    <button class="btn-favorite-detail" id="detailFavoriteBtn" onclick="toggleDetailFavorite()">
+                        🤍
+                    </button>
+                </div>
+
+                <div class="product-detail-section">
+                    <h3>Описание:</h3>
+                    <p id="detailDescription">
+                        Набор "Сладкая девочка" - идеальный выбор. Каждая сочная клубника обволакивается нежным белым и молочным Бельгийским шоколадом, украшается кокосовой стружкой.  Подарите своим близким незабываемые моменты.
+                    </p>
+                </div>
+
+                <div class="product-detail-section">
+                    <h3>Размер:</h3>
+                    <p id="detailSizes">
+                        S (18-20 ягод) | M (35-37 ягод) | L (55-57 ягод) | XL (79-81 ягод)<br>
+                        Точное количество ягод зависит от размера ягоды
+                    </p>
+                </div>
+
+                <div class="product-detail-section">
+                    <h3>Рекомендации по хранению:</h3>
+                    <p>
+                        Рекомендуем хранить продукцию не более 12 часов при температуре от +4 до +8°C.<br>
+                        Приятного аппетита!
+                    </p>
+                </div>
+
+                <div class="product-detail-section">
+                    <h3>Состав:</h3>
+                    <p id="detailComposition">
+                        Клубника, шоколад молочный, шоколад белый, кокосовая стружка, посыпка звездочки и сердечки
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+   <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <h1>Клубника в шоколаде</h1>
+        <p>Премиальные клубничные наборы ручной работы</p>
+        <a href="#products" class="btn">Смотреть каталог</a>
+    </div>
+    </section>
+
+
+    <section id="about">
+        <div class="container">
+            <h2>О нас</h2>
+            <div class="content">
+                <div class="text">
+                    <p>Мы создаем самые вкусные и красивые десерты из свежей клубники и бельгийского шоколада. Каждая ягода покрывается вручную с любовью и заботой.</p>
+                    <br>
+                    <p>Наши десерты идеально подходят для романтических свиданий, подарков, праздников и просто для того, чтобы порадовать себя и близких.</p>
+                </div>
+                <div class="image-placeholder">
+                    <img src="00.jpg" alt="Клубника в шоколаде">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2>Наш каталог</h2>
+            <div class="product-grid" id="productGrid"></div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <h2>Галерея работ</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="1.jpg" alt="Клубника в шоколаде">
+            </div>
+            <div class="gallery-item">
+                <img src="2.jpg" alt="Набор клубники">
+            </div>
+            <div class="gallery-item">
+                <img src="3.jpg" alt="Букет из клубники">
+            </div>
+            <div class="gallery-item">
+                <img src="4.jpg" alt="Клубника премиум">
+            </div>
+            <div class="gallery-item">
+                <img src="5.jpg" alt="Клубника в шоколаде">
+            </div>
+            <div class="gallery-item">
+                <img src="6.jpg" alt="Подарочный набор">
+            </div>
+        </div>
+
+    </section>
+     <!--🍓💖🎂🌸✨🎁-->
+
+
+
+
+
+
+    <!-- Контакты -->
+    <section id="contact">
+        <div class="container">
+            <h2>Свяжитесь с нами</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+  <input type="text" placeholder="Ваше имя" id="nameInput" required>
+  
+ <div style="display:flex; align-items:center; gap:0.6em;">
+  <select id="phoneCountry">
+    <option value="vn">Вьетнам</option>
+    <option value="ru">Россия</option>
+  </select>
+  <span id="phonePrefix" style="padding-left:6px;font-weight:600;color:#d72660;">+84</span>
+  <input type="tel" id="phoneInput" required style="flex:1;" placeholder="___ ___ ____">
+</div>
+
+  
+  <input type="email" placeholder="Email" id="emailInput" required>
+  <textarea placeholder="Ваше сообщение" id="messageInput" required></textarea>
+  <button id="contactSubmitBtn" type="button">Отправить заказ</button>
+</div>
+
+                <div class="contact-info">
+                    <h3>Контактная информация</h3>
+                    <p>📞 Телефон: +84 559 110 497</p>
+                    <p>📧 Email: andreeva.pixel@gmail.com</p>
+                    <p>📍 Адрес: г. Дананг, Вьетнам</p>
+                    <p>🕐 Режим работы: Пн-Вс 12:00-23:00</p>
+                    <br>
+                    <h3>Доставка</h3>
+                    <p>Бесплатная доставка по городу при заказе от 500 000₫</p>
+                    <p>Самовывоз доступен ежедневно</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Модальное окно оформления заказа -->
+<div id="checkoutModal" class="modal" style="display:none;">
+  <form id="checkoutForm" class="checkout-form">
+    <h2>Оформление заказа</h2>
+    <input type="text" name="name" placeholder="Имя" required>
+    <input type="tel" name="phone" placeholder="Телефон" required>
+    <input type="date" name="date" required>
+    <textarea name="address" placeholder="Адрес доставки" required></textarea>
+    <button type="submit" class="btn">Заказать</button>
+    <button type="button" class="btn-cancel" onclick="closeCheckoutModal()">Отмена</button>
+  </form>
+</div>
+<div id="checkoutOverlay" class="modal-overlay" style="display:none;" onclick="closeCheckoutModal()"></div>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BerryBox. Все права защищены.</p>
+            <p>Сделано с ❤️ для любителей клубники в шоколаде</p>
+        </div>
+    </footer>
+
+
+<script src="клубника.js"></script>
+</body>
+</html>
