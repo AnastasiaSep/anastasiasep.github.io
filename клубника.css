@@ -290,7 +290,9 @@ nav a:hover {
     margin-bottom: 1rem;
 }
 
-/* Модальное окно деталей продукта */
+
+
+/* Модальное окно деталей продукта — ИСПРАВЛЕНО */
 .product-detail-modal {
     position: fixed;
     top: 0;
@@ -341,25 +343,26 @@ nav a:hover {
     display: block;
     padding: 0;
     height: 100%;
-    min-height: 500px;
+    min-height: 400px; /* ← БЫЛО 500px, УМЕНЬШИЛИ */
+    max-height: 500px; /* ← ДОБАВИЛИ ОГРАНИЧЕНИЕ */
 }
 
 .product-detail-info {
-    padding: 3rem;
+    padding: 2rem 2.5rem; /* ← БЫЛО 3rem, УМЕНЬШИЛИ */
     overflow-y: auto;
     position: relative;
 }
 
 .close-detail-modal {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 44px;
-    height: 44px;
+    top: 1rem; /* ← БЫЛО 1.5rem */
+    right: 1rem; /* ← БЫЛО 1.5rem */
+    width: 40px; /* ← БЫЛО 44px */
+    height: 40px;
     background: #fce7f3;
     border: none;
     border-radius: 50%;
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* ← БЫЛО 1.5rem */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -376,44 +379,44 @@ nav a:hover {
 }
 
 .product-detail-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.7rem; /* ← БЫЛО 2rem */
+    margin-bottom: 0.8rem; /* ← БЫЛО 1rem */
     color: #1e293b;
     font-weight: 700;
 }
 
 .product-detail-price {
-    font-size: 2.5rem;
+    font-size: 2.2rem; /* ← БЫЛО 2.5rem */
     color: #ec4899;
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* ← БЫЛО 2rem */
 }
 
 .product-detail-section {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* ← БЫЛО 2rem */
 }
 
 .product-detail-section h3 {
-    font-size: 1.1rem;
+    font-size: 1rem; /* ← БЫЛО 1.1rem */
     font-weight: 600;
     color: #1e293b;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem; /* ← БЫЛО 0.8rem */
 }
 
 .product-detail-section p {
-    font-size: 0.95rem;
-    line-height: 1.8;
+    font-size: 0.9rem; /* ← БЫЛО 0.95rem */
+    line-height: 1.7; /* ← БЫЛО 1.8 */
     color: #475569;
 }
 
 .product-detail-quantity-selector {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem; /* ← БЫЛО 1.5rem */
 }
 
 .detail-quantity-label {
-    font-size: 0.95rem;
+    font-size: 0.9rem; /* ← БЫЛО 0.95rem */
     color: #64748b;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem; /* ← БЫЛО 0.8rem */
     display: block;
     font-weight: 500;
 }
@@ -421,10 +424,10 @@ nav a:hover {
 .detail-select-with-icon {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 0.8rem;
+    padding: 0.8rem; /* ← БЫЛО 1rem */
     border: 2px solid #fce7f3;
-    border-radius: 16px;
+    border-radius: 14px; /* ← БЫЛО 16px */
     background: white;
     cursor: pointer;
     transition: border-color 0.3s;
@@ -435,14 +438,14 @@ nav a:hover {
 }
 
 .detail-select-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
+    width: 45px; /* ← БЫЛО 50px */
+    height: 45px;
+    border-radius: 10px; /* ← БЫЛО 12px */
     background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 1.8rem; /* ← БЫЛО 2rem */
     flex-shrink: 0;
 }
 
@@ -450,35 +453,35 @@ nav a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px; /* ← БЫЛО 10px */
 }
 
 .detail-select-text {
     flex: 1;
-    font-size: 1rem;
+    font-size: 0.95rem; /* ← БЫЛО 1rem */
     color: #1e293b;
     font-weight: 500;
 }
 
 .detail-select-arrow {
     color: #ec4899;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* ← БЫЛО 0.9rem */
 }
 
 .product-detail-counter {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 1.2rem; /* ← БЫЛО 1.5rem */
+    margin-bottom: 1.5rem; /* ← БЫЛО 2rem */
 }
 
 .counter-btn {
-    width: 48px;
-    height: 48px;
+    width: 44px; /* ← БЫЛО 48px */
+    height: 44px;
     border: 2px solid #fce7f3;
     background: white;
     border-radius: 50%;
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* ← БЫЛО 1.5rem */
     cursor: pointer;
     transition: all 0.3s;
     display: flex;
@@ -495,27 +498,27 @@ nav a:hover {
 }
 
 .counter-value {
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* ← БЫЛО 1.5rem */
     font-weight: 700;
-    min-width: 50px;
+    min-width: 45px; /* ← БЫЛО 50px */
     text-align: center;
     color: #1e293b;
 }
 
 .product-detail-actions {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem; /* ← БЫЛО 1rem */
 }
 
 .btn-add-to-cart-detail {
     flex: 1;
-    padding: 1.2rem;
+    padding: 1rem; /* ← БЫЛО 1.2rem */
     background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
     color: white;
     border: none;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 1rem; /* ← БЫЛО 1.1rem */
     cursor: pointer;
     transition: all 0.3s;
     box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
@@ -527,12 +530,12 @@ nav a:hover {
 }
 
 .btn-favorite-detail {
-    width: 60px;
-    height: 60px;
+    width: 55px; /* ← БЫЛО 60px */
+    height: 55px;
     background: white;
     border: 2px solid #fce7f3;
     border-radius: 50%;
-    font-size: 1.8rem;
+    font-size: 1.6rem; /* ← БЫЛО 1.8rem */
     cursor: pointer;
     transition: all 0.3s;
     display: flex;
@@ -550,9 +553,32 @@ nav a:hover {
     border-color: #db2777;
 }
 
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .product-detail-content {
+        grid-template-columns: 1fr;
+        width: 95%;
+        max-height: 85vh; /* ← БЫЛО 95vh */
+    }
+
+    .product-detail-image {
+        height: 250px; /* ← БЫЛО 300px */
+        min-height: 250px;
+    }
+
+    .product-detail-info {
+        padding: 1.5rem; /* ← БЫЛО 2rem */
+    }
+}
+
+
+
+
 /* Герой */
 #hero {
-    background: url('banner.jpg');
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), /* ← ДОБАВИЛИ */
+        url('banner.jpg');
     background-size: cover;
     background-position: center 70%;
     background-repeat: no-repeat;
@@ -576,14 +602,15 @@ nav a:hover {
     margin-bottom: 1.5rem;
     font-weight: 700;
     letter-spacing: -1px;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 4px 30px rgba(0,0,0,0.6); /* ← УСИЛИЛИ */
 }
 
 #hero p {
     font-size: 1.3rem;
     margin-bottom: 2.5rem;
-    font-weight: 300;
-    opacity: 0.95;
+    font-weight: 400; /* ← БЫЛО 300, СДЕЛАЛИ ЖИРНЕЕ */
+    opacity: 1; /* ← БЫЛО 0.95 */
+    text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 4px 25px rgba(0,0,0,0.7); /* ← ДОБАВИЛИ ТЕНЬ */
 }
 
 .btn {
@@ -1148,7 +1175,7 @@ footer p {
     opacity: 1;
     background: #fdf2f8;
 }
-
+/*
 #phoneCountry {
     font-size: 1em;
     height: 3.4em;
@@ -1167,8 +1194,8 @@ footer p {
     top: -0.38em;
     -webkit-appearance: none;
     -moz-appearance: none;
-}
-
+}*/
+/*
 #phoneCountry:focus {
     border-color: #db2777;
     background: #fce7f3;
@@ -1177,7 +1204,7 @@ footer p {
 #phonePrefix {
     color: #ec4899;
     font-weight: 700;
-}
+}*/
 
 /* Custom Dropdown */
 .custom-dropdown {
