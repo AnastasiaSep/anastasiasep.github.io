@@ -633,29 +633,76 @@ document.addEventListener('keydown', function(e) {
 renderProducts();
 
 // форма отпрвавки заказа внутри корзины
-function openCheckoutModal() {
-    // Сначала закрыть корзину, если она открыта
-    document.getElementById('cartModal').classList.remove('active');
-    document.getElementById('cartOverlay').classList.remove('active');
-    // Открыть форму заказа (делай через flex — для центровки)
-    document.getElementById('checkoutModal').style.display = 'flex';
-    document.getElementById('checkoutOverlay').style.display = 'block';
-}
+// function openCheckoutModal() {
+//     // Сначала закрыть корзину, если она открыта
+//     document.getElementById('cartModal').classList.remove('active');
+//     document.getElementById('cartOverlay').classList.remove('active');
+//     // Открыть форму заказа (делай через flex — для центровки)
+//     document.getElementById('checkoutModal').style.display = 'flex';
+//     document.getElementById('checkoutOverlay').style.display = 'block';
+// }
 
-function closeCheckoutModal() {
-    document.getElementById('checkoutModal').style.display = 'none';
-    document.getElementById('checkoutOverlay').style.display = 'none';
-}
+// function closeCheckoutModal() {
+//     document.getElementById('checkoutModal').style.display = 'none';
+//     document.getElementById('checkoutOverlay').style.display = 'none';
+// }
 
-document.querySelectorAll('.btn-checkout').forEach(btn=>btn.onclick = openCheckoutModal);
+// document.querySelectorAll('.btn-checkout').forEach(btn=>btn.onclick = openCheckoutModal);
+
+// document.getElementById('checkoutForm').onsubmit = function(e) {
+//     e.preventDefault();
+//     const form = e.target;
+//     const name = form.name.value;
+//     const phone = form.phone.value;
+//     const date = form.date.value;
+//     const address = form.address.value;
+//     let orderDetails = cart.map(item =>
+//         `${item.name} (${item.size}) x${item.quantity} - ${item.price*item.quantity}₽`
+//     ).join('\n');
+//     let total = cart.reduce((sum,item)=>sum+item.price*item.quantity, 0);
+
+//     const botToken = '7949643409:AAGmGqoAS2DR0tSYyesvNkpGidaRyCSOU9Q';
+//     const chatId = '530003189';
+
+//     const message = `🛒 Новый заказ!\n\n${orderDetails}
+//     Имя: ${name}
+//     Телефон: ${phone}
+//     Дата доставки: ${date}
+//     Адрес: ${address}
+//     💰 Итого: ${total}₽`;
+
+//     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+//         method: 'POST',
+//         headers: {'Content-Type':'application/json'},
+//         body: JSON.stringify({ chat_id: chatId, text: message })
+//     })
+//     .then(resp=>resp.json())
+//     .then(data=>{
+//         if(data.ok){
+//             alert('Заказ отправлен! Мы свяжемся с вами.');
+//             cart = [];
+//             updateCart();
+//             closeCheckoutModal();
+//             toggleCart();
+//         } else {
+//             alert('Ошибка отправки заказа. Проверь chat_id/token!');
+//             console.log(data);
+//         }
+//     })
+//     .catch(err=>{
+//         alert('Ошибка: заказ не отправлен. См. консоль.');
+//         console.error(err);
+//     });
+// };
 
 document.getElementById('checkoutForm').onsubmit = function(e) {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const phone = form.phone.value;
+    const contact = form.contact.value;  // ← ИЗМЕНИЛИ
     const date = form.date.value;
     const address = form.address.value;
+    
     let orderDetails = cart.map(item =>
         `${item.name} (${item.size}) x${item.quantity} - ${item.price*item.quantity}₽`
     ).join('\n');
@@ -664,12 +711,7 @@ document.getElementById('checkoutForm').onsubmit = function(e) {
     const botToken = '7949643409:AAGmGqoAS2DR0tSYyesvNkpGidaRyCSOU9Q';
     const chatId = '530003189';
 
-    const message = `🛒 Новый заказ!\n\n${orderDetails}
-    Имя: ${name}
-    Телефон: ${phone}
-    Дата доставки: ${date}
-    Адрес: ${address}
-    💰 Итого: ${total}₽`;
+    const message = `🛒 Новый заказ!\n\n${orderDetails}\n\nИмя: ${name}\nКонтакт: ${contact}\nДата доставки: ${date}\nАдрес: ${address}\n💰 Итого: ${total}₽`;
 
     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: 'POST',
@@ -697,81 +739,106 @@ document.getElementById('checkoutForm').onsubmit = function(e) {
 
 
 
-const phoneInput = document.getElementById('phoneInput');
-const countrySelect = document.getElementById('phoneCountry');
-const phonePrefix = document.getElementById('phonePrefix');
-
-let maskInstance;
-
-function setMask(value) {
-  if(maskInstance) maskInstance.destroy();
-  if(value === 'vn') {
-    maskInstance = IMask(phoneInput, { mask: '000 000 0000', lazy: false });
-    phoneInput.placeholder = '___ ___ ____';
-    phonePrefix.textContent = '+84';
-  } else {
-    maskInstance = IMask(phoneInput, { mask: '(000) 000-00-00', lazy: false });
-    phoneInput.placeholder = '(___) ___-__-__';
-    phonePrefix.textContent = '+7';
-  }
-  phoneInput.value = '';
-}
 
 
-countrySelect.onchange = function() {
-  setMask(this.value);
-};
-setMask(countrySelect.value);
+
+// const phoneInput = document.getElementById('phoneInput');
+// const countrySelect = document.getElementById('phoneCountry');
+// const phonePrefix = document.getElementById('phonePrefix');
+
+// let maskInstance;
+
+// function setMask(value) {
+//   if(maskInstance) maskInstance.destroy();
+//   if(value === 'vn') {
+//     maskInstance = IMask(phoneInput, { mask: '000 000 0000', lazy: false });
+//     phoneInput.placeholder = '___ ___ ____';
+//     phonePrefix.textContent = '+84';
+//   } else {
+//     maskInstance = IMask(phoneInput, { mask: '(000) 000-00-00', lazy: false });
+//     phoneInput.placeholder = '(___) ___-__-__';
+//     phonePrefix.textContent = '+7';
+//   }
+//   phoneInput.value = '';
+// }
 
 
+// countrySelect.onchange = function() {
+//   setMask(this.value);
+// };
+// setMask(countrySelect.value);
+
+
+
+
+// document.getElementById('contactSubmitBtn').onclick = function() {
+//     const name = document.getElementById('nameInput').value.trim();
+//     const phone = document.getElementById('phoneInput').value.trim();
+//     const email = document.getElementById('emailInput').value.trim();
+//     const message = document.getElementById('messageInput').value.trim();
+
+
+//  // Валидация имени (только буквы, минимум 2)
+//     const nameIsValid = /^[a-zA-Zа-яА-ЯёЁ\s\-]{2,30}$/.test(name);
+//     if(!nameIsValid) {
+//         alert('Введите только буквы, от 2 до 30 символов)');
+//         return;
+//     }
+
+//     const code = phonePrefix.textContent; // "+84" или "+7"
+//     const digits = phone.replace(/\D/g, ''); // только цифры, без пробелов и знаков
+
+//     // Россия: ровно 10 цифр, Вьетнам: 9 или 10
+//     const isRu = code === '+7' && digits.length === 10;
+//     const isVn = code === '+84' && (digits.length === 9 || digits.length === 10);
+
+//     if (!(isRu || isVn)) {
+//         alert('Введите корректный номер РФ (+7) или Вьетнама (+84)!');
+//         return;
+//     }
+
+//     // Теперь для отправки формируй полный формат так:
+//     const outputPhone = code + ' ' + phone; // например: +84 055 911 0497
+
+//         // Валидация email — стандартная, простая
+//     if (!/\S+@\S+\.\S+/.test(email)) {
+//         alert('Введите корректный email!');
+//         return;
+
+//     }
 
 
 document.getElementById('contactSubmitBtn').onclick = function() {
     const name = document.getElementById('nameInput').value.trim();
-    const phone = document.getElementById('phoneInput').value.trim();
+    const contact = document.getElementById('contactInput').value.trim();
     const email = document.getElementById('emailInput').value.trim();
     const message = document.getElementById('messageInput').value.trim();
 
-
- // Валидация имени (только буквы, минимум 2)
+    // Валидация имени (только буквы, минимум 2)
     const nameIsValid = /^[a-zA-Zа-яА-ЯёЁ\s\-]{2,30}$/.test(name);
     if(!nameIsValid) {
-        alert('Введите только буквы, от 2 до 30 символов)');
+        alert('Введите корректное имя');
         return;
     }
 
-    const code = phonePrefix.textContent; // "+84" или "+7"
-    const digits = phone.replace(/\D/g, ''); // только цифры, без пробелов и знаков
-
-    // Россия: ровно 10 цифр, Вьетнам: 9 или 10
-    const isRu = code === '+7' && digits.length === 10;
-    const isVn = code === '+84' && (digits.length === 9 || digits.length === 10);
-
-    if (!(isRu || isVn)) {
-        alert('Введите корректный номер РФ (+7) или Вьетнама (+84)!');
+    // Проверка что поле контакта НЕ ПУСТОЕ
+    if (!contact) {
+        alert('Введите телефон или Telegram для связи!');
         return;
     }
 
-    // Теперь для отправки формируй полный формат так:
-    const outputPhone = code + ' ' + phone; // например: +84 055 911 0497
 
-        // Валидация email — стандартная, простая
-    if (!/\S+@\S+\.\S+/.test(email)) {
-        alert('Введите корректный email!');
-        return;
-
-    }
 
     // Проверка на заполненность
-    if (!name || !phone || !email || !message) {
+    if (!name || !contact || !email || !message) {
         alert('Пожалуйста, заполните все поля!');
         return;
     }
 
     const botToken = '7949643409:AAGmGqoAS2DR0tSYyesvNkpGidaRyCSOU9Q';
     const chatId = '530003189';
-    const contactMessage = `✉️ Новое сообщение с формы контактов:\nИмя: ${name}\nТелефон: ${phone}\nEmail: ${email}\nСообщение: ${message}`;
-
+    // const contactMessage = `✉️ Новое сообщение с формы контактов:\nИмя: ${name}\nТелефон: ${phone}\nEmail: ${email}\nСообщение: ${message}`;
+    const contactMessage = `✉️ Новое сообщение с формы контактов:\n\nИмя: ${name}\nКонтакт: ${contact}\nEmail: ${email}\nСообщение: ${message}`;
     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -787,15 +854,11 @@ document.getElementById('contactSubmitBtn').onclick = function() {
         }
     })
     .catch(() => alert('Ошибка сети. Попробуйте позже!'));
-    return;
-    
 }
-
-
 
 function clearContactForm() {
     document.getElementById('nameInput').value = '';
-    document.getElementById('phoneInput').value = '';
+    document.getElementById('contactInput').value = '';
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
