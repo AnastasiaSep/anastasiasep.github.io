@@ -830,8 +830,8 @@ document.getElementById('contactSubmitBtn').onclick = function() {
 
 
     // Проверка на заполненность
-    if (!name || !contact || !email || !message) {
-        alert('Пожалуйста, заполните все поля!');
+    if (!name || !contact || !email ) {
+        alert('Пожалуйста, заполните  поля!');
         return;
     }
 
@@ -862,3 +862,4 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
