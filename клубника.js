@@ -597,8 +597,8 @@ function submitOrder() {
     const email = document.getElementById('emailInput').value;
     const message = document.getElementById('messageInput').value;
 
-    if (!name || !phone || !email ) {
-        alert('Пожалуйста, заполните  поля!');
+    if (!name || !phone || !email || !message) {
+        alert('Пожалуйста, заполните все поля!');
         return;
     }
 
@@ -632,68 +632,7 @@ document.addEventListener('keydown', function(e) {
 // Инициализация
 renderProducts();
 
-// форма отпрвавки заказа внутри корзины
-// function openCheckoutModal() {
-//     // Сначала закрыть корзину, если она открыта
-//     document.getElementById('cartModal').classList.remove('active');
-//     document.getElementById('cartOverlay').classList.remove('active');
-//     // Открыть форму заказа (делай через flex — для центровки)
-//     document.getElementById('checkoutModal').style.display = 'flex';
-//     document.getElementById('checkoutOverlay').style.display = 'block';
-// }
 
-// function closeCheckoutModal() {
-//     document.getElementById('checkoutModal').style.display = 'none';
-//     document.getElementById('checkoutOverlay').style.display = 'none';
-// }
-
-// document.querySelectorAll('.btn-checkout').forEach(btn=>btn.onclick = openCheckoutModal);
-
-// document.getElementById('checkoutForm').onsubmit = function(e) {
-//     e.preventDefault();
-//     const form = e.target;
-//     const name = form.name.value;
-//     const phone = form.phone.value;
-//     const date = form.date.value;
-//     const address = form.address.value;
-//     let orderDetails = cart.map(item =>
-//         `${item.name} (${item.size}) x${item.quantity} - ${item.price*item.quantity}₽`
-//     ).join('\n');
-//     let total = cart.reduce((sum,item)=>sum+item.price*item.quantity, 0);
-
-//     const botToken = '7949643409:AAGmGqoAS2DR0tSYyesvNkpGidaRyCSOU9Q';
-//     const chatId = '530003189';
-
-//     const message = `🛒 Новый заказ!\n\n${orderDetails}
-//     Имя: ${name}
-//     Телефон: ${phone}
-//     Дата доставки: ${date}
-//     Адрес: ${address}
-//     💰 Итого: ${total}₽`;
-
-//     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-//         method: 'POST',
-//         headers: {'Content-Type':'application/json'},
-//         body: JSON.stringify({ chat_id: chatId, text: message })
-//     })
-//     .then(resp=>resp.json())
-//     .then(data=>{
-//         if(data.ok){
-//             alert('Заказ отправлен! Мы свяжемся с вами.');
-//             cart = [];
-//             updateCart();
-//             closeCheckoutModal();
-//             toggleCart();
-//         } else {
-//             alert('Ошибка отправки заказа. Проверь chat_id/token!');
-//             console.log(data);
-//         }
-//     })
-//     .catch(err=>{
-//         alert('Ошибка: заказ не отправлен. См. консоль.');
-//         console.error(err);
-//     });
-// };
 
 document.getElementById('checkoutForm').onsubmit = function(e) {
     e.preventDefault();
@@ -808,52 +747,63 @@ document.getElementById('checkoutForm').onsubmit = function(e) {
 //     }
 
 
-document.getElementById('contactSubmitBtn').onclick = function() {
+document.getElementById('contactSubmitBtn').onclick = async function() {
     const name = document.getElementById('nameInput').value.trim();
     const contact = document.getElementById('contactInput').value.trim();
     const email = document.getElementById('emailInput').value.trim();
     const message = document.getElementById('messageInput').value.trim();
 
-    // Валидация имени (только буквы, минимум 2)
+    // Валидация имени
     const nameIsValid = /^[a-zA-Zа-яА-ЯёЁ\s\-]{2,30}$/.test(name);
     if(!nameIsValid) {
         alert('Введите корректное имя');
         return;
     }
 
-    // Проверка что поле контакта НЕ ПУСТОЕ
+    // Проверка контакта
     if (!contact) {
         alert('Введите телефон или Telegram для связи!');
         return;
     }
 
-
-
-    // Проверка на заполненность
-    if (!name || !contact || !email ) {
-        alert('Пожалуйста, заполните  поля!');
+    // Валидация email
+    if (!/\S+@\S+\.\S+/.test(email)) {
+        alert('Введите корректный email!');
         return;
     }
 
-    const botToken = '7949643409:AAGmGqoAS2DR0tSYyesvNkpGidaRyCSOU9Q';
-    const chatId = '530003189';
-    // const contactMessage = `✉️ Новое сообщение с формы контактов:\nИмя: ${name}\nТелефон: ${phone}\nEmail: ${email}\nСообщение: ${message}`;
-    const contactMessage = `✉️ Новое сообщение с формы контактов:\n\nИмя: ${name}\nКонтакт: ${contact}\nEmail: ${email}\nСообщение: ${message}`;
-    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ chat_id: chatId, text: contactMessage })
-    })
-    .then(resp => resp.json())
-    .then(data => {
+    // // Проверка сообщения
+    // if (!message) {
+    //     alert('Введите ваше сообщение!');
+    //     return;
+    // }
+
+       // Проверка на заполненность
+    if (!name || !contact) {
+        alert('Пожалуйста, заполните имя и контакты!');
+        return;
+    }
+
+    // ОТПРАВКА ЧЕРЕЗ WORKER
+    try {
+        const response = await fetch('https://muddy-feather-8439.nastyadelonge554.workers.dev', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, contact, email, message })
+        });
+
+        const data = await response.json();
+        
         if (data.ok) {
             alert('Спасибо! Ваше сообщение отправлено 😊');
             clearContactForm();
         } else {
-            alert('Ошибка отправки сообщения. Напишите нам напрямую!');
+            alert(data.error || 'Ошибка отправки сообщения!');
         }
-    })
-    .catch(() => alert('Ошибка сети. Попробуйте позже!'));
+    } catch (error) {
+        alert('Ошибка сети. Попробуйте позже!');
+        console.error(error);
+    }
 }
 
 function clearContactForm() {
@@ -862,5 +812,3 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
-
-
