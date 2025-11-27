@@ -95,7 +95,19 @@ const products = [
 ];
 
 // Корзина
+// Загрузка корзины из localStorage
 let cart = [];
+const savedCart = localStorage.getItem('cart');
+if (savedCart) {
+    try {
+        cart = JSON.parse(savedCart);
+        updateCart(); // Обновляем отображение корзины
+    } catch (error) {
+        console.error('Ошибка загрузки корзины:', error);
+        cart = [];
+    }
+}
+
 let favorites = [];
 let currentDetailProduct = null;
 let detailCounter = 1;
@@ -554,6 +566,7 @@ function updateCart() {
             </div>
         `).join('');
     }
+        localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 // Увеличить количество
@@ -634,11 +647,58 @@ renderProducts();
 
 
 
-document.getElementById('checkoutForm').onsubmit = function(e) {
+// document.getElementById('checkoutForm').onsubmit = function(e) {
+//     e.preventDefault();
+//     const form = e.target;
+//     const name = form.name.value;
+//     const contact = form.contact.value;  // ← ИЗМЕНИЛИ
+//     const date = form.date.value;
+//     const address = form.address.value;
+    
+//     let orderDetails = cart.map(item =>
+//         `${item.name} (${item.size}) x${item.quantity} - ${item.price*item.quantity}₽`
+//     ).join('\n');
+//     let total = cart.reduce((sum,item)=>sum+item.price*item.quantity, 0);
+
+//     const botToken = '7949643409:AAGmGqoAS2DR0tSYyesvNkpGidaRyCSOU9Q';
+//     const chatId = '530003189';
+
+//     const message = `🛒 Новый заказ!\n\n${orderDetails}\n\nИмя: ${name}\nКонтакт: ${contact}\nДата доставки: ${date}\nАдрес: ${address}\n💰 Итого: ${total}₽`;
+
+//     fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+//         method: 'POST',
+//         headers: {'Content-Type':'application/json'},
+//         body: JSON.stringify({ chat_id: chatId, text: message })
+//     })
+//     .then(resp=>resp.json())
+//     .then(data=>{
+//         if (data.ok) {
+//             alert('Заказ отправлен! Мы свяжемся с вами.');
+//             cart = [];
+//             localStorage.removeItem('cart'); // ОЧИЩАЕМ LOCALSTORAGE
+//             updateCart();
+//             closeCheckoutModal();
+//             toggleCart();
+//         }
+//                     updateCart();
+//             closeCheckoutModal();
+//             toggleCart();
+//         } else {
+//             alert('Ошибка отправки заказа. Проверь chat_id/token!');
+//             console.log(data);
+//         }
+//     })
+//     .catch(err=>{
+//         alert('Ошибка: заказ не отправлен. См. консоль.');
+//         console.error(err);
+//     });
+// };
+
+document.getElementById('checkoutForm').onsubmit = async function(e) {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const contact = form.contact.value;  // ← ИЗМЕНИЛИ
+    const contact = form.contact.value;
     const date = form.date.value;
     const address = form.address.value;
     
@@ -647,104 +707,38 @@ document.getElementById('checkoutForm').onsubmit = function(e) {
     ).join('\n');
     let total = cart.reduce((sum,item)=>sum+item.price*item.quantity, 0);
 
-    const botToken = '7949643409:AAGmGqoAS2DR0tSYyesvNkpGidaRyCSOU9Q';
-    const chatId = '530003189';
+    // ОТПРАВКА ЧЕРЕЗ WORKER
+    try {
+        const response = await fetch('https://muddy-feather-8439.nastyadelonge554.workers.dev', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                name, 
+                contact, 
+                date, 
+                address, 
+                orderDetails, 
+                total 
+            })
+        });
 
-    const message = `🛒 Новый заказ!\n\n${orderDetails}\n\nИмя: ${name}\nКонтакт: ${contact}\nДата доставки: ${date}\nАдрес: ${address}\n💰 Итого: ${total}₽`;
-
-    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({ chat_id: chatId, text: message })
-    })
-    .then(resp=>resp.json())
-    .then(data=>{
-        if(data.ok){
+        const data = await response.json();
+        
+        if (data.ok) {
             alert('Заказ отправлен! Мы свяжемся с вами.');
             cart = [];
+            localStorage.removeItem('cart');
             updateCart();
             closeCheckoutModal();
             toggleCart();
         } else {
-            alert('Ошибка отправки заказа. Проверь chat_id/token!');
-            console.log(data);
+            alert(data.error || 'Ошибка отправки заказа!');
         }
-    })
-    .catch(err=>{
-        alert('Ошибка: заказ не отправлен. См. консоль.');
-        console.error(err);
-    });
+    } catch (error) {
+        alert('Ошибка: заказ не отправлен.');
+        console.error(error);
+    }
 };
-
-
-
-
-
-
-// const phoneInput = document.getElementById('phoneInput');
-// const countrySelect = document.getElementById('phoneCountry');
-// const phonePrefix = document.getElementById('phonePrefix');
-
-// let maskInstance;
-
-// function setMask(value) {
-//   if(maskInstance) maskInstance.destroy();
-//   if(value === 'vn') {
-//     maskInstance = IMask(phoneInput, { mask: '000 000 0000', lazy: false });
-//     phoneInput.placeholder = '___ ___ ____';
-//     phonePrefix.textContent = '+84';
-//   } else {
-//     maskInstance = IMask(phoneInput, { mask: '(000) 000-00-00', lazy: false });
-//     phoneInput.placeholder = '(___) ___-__-__';
-//     phonePrefix.textContent = '+7';
-//   }
-//   phoneInput.value = '';
-// }
-
-
-// countrySelect.onchange = function() {
-//   setMask(this.value);
-// };
-// setMask(countrySelect.value);
-
-
-
-
-// document.getElementById('contactSubmitBtn').onclick = function() {
-//     const name = document.getElementById('nameInput').value.trim();
-//     const phone = document.getElementById('phoneInput').value.trim();
-//     const email = document.getElementById('emailInput').value.trim();
-//     const message = document.getElementById('messageInput').value.trim();
-
-
-//  // Валидация имени (только буквы, минимум 2)
-//     const nameIsValid = /^[a-zA-Zа-яА-ЯёЁ\s\-]{2,30}$/.test(name);
-//     if(!nameIsValid) {
-//         alert('Введите только буквы, от 2 до 30 символов)');
-//         return;
-//     }
-
-//     const code = phonePrefix.textContent; // "+84" или "+7"
-//     const digits = phone.replace(/\D/g, ''); // только цифры, без пробелов и знаков
-
-//     // Россия: ровно 10 цифр, Вьетнам: 9 или 10
-//     const isRu = code === '+7' && digits.length === 10;
-//     const isVn = code === '+84' && (digits.length === 9 || digits.length === 10);
-
-//     if (!(isRu || isVn)) {
-//         alert('Введите корректный номер РФ (+7) или Вьетнама (+84)!');
-//         return;
-//     }
-
-//     // Теперь для отправки формируй полный формат так:
-//     const outputPhone = code + ' ' + phone; // например: +84 055 911 0497
-
-//         // Валидация email — стандартная, простая
-//     if (!/\S+@\S+\.\S+/.test(email)) {
-//         alert('Введите корректный email!');
-//         return;
-
-//     }
 
 
 document.getElementById('contactSubmitBtn').onclick = async function() {
@@ -812,3 +806,4 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
