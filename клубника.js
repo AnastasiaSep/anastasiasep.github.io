@@ -597,8 +597,8 @@ function submitOrder() {
     const email = document.getElementById('emailInput').value;
     const message = document.getElementById('messageInput').value;
 
-    if (!name || !phone || !email || !message) {
-        alert('Пожалуйста, заполните все поля!');
+    if (!name || !phone || !email ) {
+        alert('Пожалуйста, заполните  поля!');
         return;
     }
 
@@ -862,4 +862,5 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
