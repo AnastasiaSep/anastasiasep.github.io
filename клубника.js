@@ -760,6 +760,21 @@ renderProducts();
 //         submitBtn.disabled = false;
 //     }
 // };
+function openCheckoutModal() {
+    if (cart.length === 0) {
+        alert('Корзина пуста!');
+        return;
+    }
+    document.getElementById('checkoutModal').style.display = 'flex';
+    document.getElementById('checkoutOverlay').style.display = 'block';
+}
+
+function closeCheckoutModal() {
+    document.getElementById('checkoutModal').style.display = 'none';
+    document.getElementById('checkoutOverlay').style.display = 'none';
+}
+
+
 
 document.getElementById('checkoutForm').onsubmit = async function(e) {
     e.preventDefault();
@@ -873,6 +888,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
