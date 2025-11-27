@@ -695,72 +695,6 @@ renderProducts();
 // };
 
 
-document.getElementById('checkoutForm').onsubmit = async function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const contact = form.contact.value;
-    const date = form.date.value;
-    const address = form.address.value;
-    
-    if (!name || !contact || !date || !address) {
-        alert('Заполните все поля!');
-        return;
-    }
-    
-    let orderDetails = cart.map(item =>
-        `${item.name} (${item.size}) x${item.quantity} - ${item.price*item.quantity}₽`
-    ).join('\n');
-    let total = cart.reduce((sum,item)=>sum+item.price*item.quantity, 0);
-
-    // Показываем индикатор загрузки
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Отправка...';
-    submitBtn.disabled = true;
-
-    try {
-        const response = await fetch('https://muddy-feather-8439.nastyadelonge554.workers.dev', {
-            method: 'POST',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({ 
-                name, 
-                contact, 
-                date, 
-                address, 
-                orderDetails, 
-                total 
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        
-        if (data.ok) {
-            alert('✅ Заказ отправлен! Мы свяжемся с вами.');
-            cart = [];
-            localStorage.removeItem('cart');
-            updateCart();
-            closeCheckoutModal();
-            toggleCart();
-        } else {
-            throw new Error(data.error || 'Ошибка отправки заказа');
-        }
-    } catch (error) {
-        console.error('Ошибка:', error);
-        alert('❌ Ошибка отправки заказа. Попробуйте ещё раз или свяжитесь с нами напрямую.');
-    } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-};
-
 // document.getElementById('checkoutForm').onsubmit = async function(e) {
 //     e.preventDefault();
 //     const form = e.target;
@@ -769,16 +703,29 @@ document.getElementById('checkoutForm').onsubmit = async function(e) {
 //     const date = form.date.value;
 //     const address = form.address.value;
     
+//     if (!name || !contact || !date || !address) {
+//         alert('Заполните все поля!');
+//         return;
+//     }
+    
 //     let orderDetails = cart.map(item =>
 //         `${item.name} (${item.size}) x${item.quantity} - ${item.price*item.quantity}₽`
 //     ).join('\n');
 //     let total = cart.reduce((sum,item)=>sum+item.price*item.quantity, 0);
 
-//     // ОТПРАВКА ЧЕРЕЗ WORKER
+//     // Показываем индикатор загрузки
+//     const submitBtn = form.querySelector('button[type="submit"]');
+//     const originalText = submitBtn.textContent;
+//     submitBtn.textContent = 'Отправка...';
+//     submitBtn.disabled = true;
+
 //     try {
 //         const response = await fetch('https://muddy-feather-8439.nastyadelonge554.workers.dev', {
 //             method: 'POST',
-//             headers: { 'Content-Type': 'application/json' },
+//             headers: { 
+//                 'Content-Type': 'application/json',
+//                 'Accept': 'application/json'
+//             },
 //             body: JSON.stringify({ 
 //                 name, 
 //                 contact, 
@@ -789,23 +736,76 @@ document.getElementById('checkoutForm').onsubmit = async function(e) {
 //             })
 //         });
 
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+
 //         const data = await response.json();
         
 //         if (data.ok) {
-//             alert('Заказ отправлен! Мы свяжемся с вами.');
+//             alert('✅ Заказ отправлен! Мы свяжемся с вами.');
 //             cart = [];
 //             localStorage.removeItem('cart');
 //             updateCart();
 //             closeCheckoutModal();
 //             toggleCart();
 //         } else {
-//             alert(data.error || 'Ошибка отправки заказа!');
+//             throw new Error(data.error || 'Ошибка отправки заказа');
 //         }
 //     } catch (error) {
-//         alert('Ошибка: заказ не отправлен.');
-//         console.error(error);
+//         console.error('Ошибка:', error);
+//         alert('❌ Ошибка отправки заказа. Попробуйте ещё раз или свяжитесь с нами напрямую.');
+//     } finally {
+//         submitBtn.textContent = originalText;
+//         submitBtn.disabled = false;
 //     }
 // };
+
+document.getElementById('checkoutForm').onsubmit = async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const contact = form.contact.value;
+    const date = form.date.value;
+    const address = form.address.value;
+    
+    let orderDetails = cart.map(item =>
+        `${item.name} (${item.size}) x${item.quantity} - ${item.price*item.quantity}₽`
+    ).join('\n');
+    let total = cart.reduce((sum,item)=>sum+item.price*item.quantity, 0);
+
+    // ОТПРАВКА ЧЕРЕЗ WORKER
+    try {
+        const response = await fetch('https://muddy-feather-8439.nastyadelonge554.workers.dev', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                name, 
+                contact, 
+                date, 
+                address, 
+                orderDetails, 
+                total 
+            })
+        });
+
+        const data = await response.json();
+        
+        if (data.ok) {
+            alert('Заказ отправлен! Мы свяжемся с вами.');
+            cart = [];
+            localStorage.removeItem('cart');
+            updateCart();
+            closeCheckoutModal();
+            toggleCart();
+        } else {
+            alert(data.error || 'Ошибка отправки заказа!');
+        }
+    } catch (error) {
+        alert('Ошибка: заказ не отправлен.');
+        console.error(error);
+    }
+};
 
 
 document.getElementById('contactSubmitBtn').onclick = async function() {
@@ -873,5 +873,6 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
