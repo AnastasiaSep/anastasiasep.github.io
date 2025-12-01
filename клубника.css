@@ -341,16 +341,16 @@ nav a:hover {
     box-shadow: 0 0 50px rgba(189, 0, 255, 0.2); /* Фиолетовое свечение */
     border: 1px solid rgba(255,255,255,0.1);
 }
-
+// картинка
 #detailModalImage {
     width: 100% !important;
-    height: 100% !important;
+    height: 200% !important;
     display: block !important;
 }
 
 #detailModalImage img {
     width: 100% !important;
-    height: 100% !important;
+    height: 170% !important;
     object-fit: cover !important;
 }
 
@@ -1334,6 +1334,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
