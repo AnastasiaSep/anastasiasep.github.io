@@ -1210,30 +1210,51 @@ footer p {
     background: rgba(255, 46, 147, 0.05);
 }
 
-/* Custom Dropdown */
+
+
+
+
+
+/* Исправление выпадающего списка (Dropdown) */
 .custom-dropdown {
-    position: fixed;
-    background: #1a1b26;
-    border: 1px solid #ff2e93;
-    border-radius: 16px;
+    position: absolute; /* Было fixed, что ломало позиционирование на мобильных */
+    background: #1a1b26; /* Темный фон под стиль сайта */
+    border: 1px solid #ff2e93; /* Неоновая рамка */
+    border-radius: 14px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    max-height: 250px;
+    max-height: 200px;
     overflow-y: auto;
+    width: 100%; /* Чтобы ширина была равна родительскому блоку */
+    left: 0;
+    top: 100%; /* Ровно под кнопкой */
+    margin-top: 5px; /* Небольшой отступ */
 }
 
 .custom-dropdown > div {
     padding: 1rem;
     cursor: pointer;
     transition: all 0.2s;
-    color: #e2e8f0;
+    color: #e2e8f0; /* Светлый текст */
     font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.05); /* Разделители */
+}
+
+.custom-dropdown > div:last-child {
+    border-bottom: none;
 }
 
 .custom-dropdown > div:hover {
-    background: rgba(255, 46, 147, 0.1);
+    background: rgba(255, 46, 147, 0.1); /* Розовая подсветка при наведении */
     color: #ff2e93;
 }
+
+/* Важно: родительский блок должен иметь position: relative, чтобы absolute работало корректно */
+.product-detail-quantity-selector {
+    position: relative; 
+}
+
+
 
 /* Адаптация */
 @media (max-width: 768px) {
@@ -1298,3 +1319,4 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
