@@ -826,9 +826,17 @@ function openCheckoutModal() {
         alert('Корзина пуста!');
         return;
     }
+    // Закрываем корзину (убираем класс .active)
+    document.querySelector('.cart-modal').classList.remove('active');
+    document.querySelector('.cart-overlay').classList.remove('active');
+
+    
     document.getElementById('checkoutModal').style.display = 'flex';
     document.getElementById('checkoutOverlay').style.display = 'block';
 }
+
+
+    
 
 function closeCheckoutModal() {
     document.getElementById('checkoutModal').style.display = 'none';
@@ -949,6 +957,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
