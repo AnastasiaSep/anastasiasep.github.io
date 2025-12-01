@@ -415,67 +415,128 @@ function toggleFavorite(productId, event) {
     }
 }
 
-// Переключение выпадающего списка
-function toggleDropdown(productId) {
-    const product = products.find(p => p.id === productId);
-    const select = document.getElementById(`quantity-${productId}`);
-    const wrapper = select.previousElementSibling;
-    const textElement = document.getElementById(`selected-${productId}`);
-    const priceElement = wrapper.closest('.product-card').querySelector('.product-price');
+// // Переключение выпадающего списка
+// function toggleDropdown(productId) {
+//     const product = products.find(p => p.id === productId);
+//     const select = document.getElementById(`quantity-${productId}`);
+//     const wrapper = select.previousElementSibling;
+//     const textElement = document.getElementById(`selected-${productId}`);
+//     const priceElement = wrapper.closest('.product-card').querySelector('.product-price');
     
+//     document.querySelectorAll('.custom-dropdown').forEach(d => d.remove());
+    
+//     const dropdown = document.createElement('div');
+//     dropdown.className = 'custom-dropdown';
+    
+//     const rect = wrapper.getBoundingClientRect();
+    
+//     dropdown.style.cssText = `
+//         position: fixed;
+//         top: ${rect.bottom + 5}px;
+//         left: ${rect.left}px;
+//         width: ${rect.width}px;
+//         background: white;
+//         border: 2px solid #ff4d6d;
+//         border-radius: 10px;
+//         box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+//         z-index: 9999;
+//         max-height: 250px;
+//         overflow-y: auto;
+//     `;
+    
+//     Array.from(select.options).forEach((option, index) => {
+//         const item = document.createElement('div');
+//         item.textContent = option.text;
+//         item.style.cssText = `
+//             padding: 1rem;
+//             cursor: pointer;
+//             transition: all 0.2s;
+//             ${index === select.selectedIndex ? 'background: #ffe0e5; font-weight: 600;' : ''}
+//         `;
+        
+//         item.onmouseover = () => item.style.background = '#ffe0e5';
+//         item.onmouseout = () => {
+//             if (index !== select.selectedIndex) item.style.background = 'white';
+//         };
+        
+//         item.onclick = () => {
+//             select.selectedIndex = index;
+//             textElement.textContent = option.text;
+            
+//             // ОБНОВЛЯЕМ ЦЕНУ
+//             const newPrice = option.dataset.price;
+//             const priceText = priceElement.childNodes[0];
+//             priceText.textContent = `${newPrice} ₽ `;
+            
+//             dropdown.remove();
+//         };
+        
+//         dropdown.appendChild(item);
+//     });
+    
+//     document.body.appendChild(dropdown);
+    
+//     setTimeout(() => {
+//         document.addEventListener('click', function close(e) {
+//             if (!dropdown.contains(e.target) && !wrapper.contains(e.target)) {
+//                 dropdown.remove();
+//                 document.removeEventListener('click', close);
+//             }
+//         });
+//     }, 0);
+// }
+
+
+
+// Функция для выпадающего списка в КАТАЛОГЕ (карточки товаров)
+function toggleDropdown(id) {
+    const card = document.querySelector(`.product-card button[onclick="addToCart(${id})"]`).closest('.product-card');
+    const select = card.querySelector('select');
+    const wrapper = card.querySelector('.select-with-icon');
+    
+    // Закрываем другие открытые списки
     document.querySelectorAll('.custom-dropdown').forEach(d => d.remove());
-    
+
     const dropdown = document.createElement('div');
-    dropdown.className = 'custom-dropdown';
-    
+    dropdown.className = 'custom-dropdown'; // Используем наш класс с темными стилями
+
     const rect = wrapper.getBoundingClientRect();
+
+    // Задаем ТОЛЬКО позицию. Цвета и стили берутся из CSS (.custom-dropdown)
+    // Используем absolute относительно документа + scrollY, чтобы при прокрутке список не уезжал
+    dropdown.style.position = 'absolute';
+    dropdown.style.top = (rect.bottom + window.scrollY + 5) + 'px'; 
+    dropdown.style.left = (rect.left + window.scrollX) + 'px';
+    dropdown.style.width = rect.width + 'px';
     
-    dropdown.style.cssText = `
-        position: fixed;
-        top: ${rect.bottom + 5}px;
-        left: ${rect.left}px;
-        width: ${rect.width}px;
-        background: white;
-        border: 2px solid #ff4d6d;
-        border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        z-index: 9999;
-        max-height: 250px;
-        overflow-y: auto;
-    `;
-    
-    Array.from(select.options).forEach((option, index) => {
+    // Если position:absolute работает некорректно из-за родительских блоков, можно попробовать fixed:
+    // dropdown.style.position = 'fixed';
+    // dropdown.style.top = (rect.bottom + 5) + 'px';
+    // dropdown.style.left = rect.left + 'px';
+
+    Array.from(select.options).forEach(option => {
         const item = document.createElement('div');
         item.textContent = option.text;
-        item.style.cssText = `
-            padding: 1rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            ${index === select.selectedIndex ? 'background: #ffe0e5; font-weight: 600;' : ''}
-        `;
         
-        item.onmouseover = () => item.style.background = '#ffe0e5';
-        item.onmouseout = () => {
-            if (index !== select.selectedIndex) item.style.background = 'white';
-        };
-        
-        item.onclick = () => {
-            select.selectedIndex = index;
-            textElement.textContent = option.text;
-            
-            // ОБНОВЛЯЕМ ЦЕНУ
-            const newPrice = option.dataset.price;
-            const priceText = priceElement.childNodes[0];
-            priceText.textContent = `${newPrice} ₽ `;
+        // Логика клика по элементу списка
+        item.onclick = function() {
+            select.value = option.value;
+            // Обновляем текст и иконку в карточке
+            const textDiv = card.querySelector('.select-text');
+            if(textDiv) textDiv.textContent = option.text;
+
+            // Если нужно менять иконку (опционально)
+            const iconDiv = card.querySelector('.select-icon img');
+            // Здесь можно добавить логику смены картинки, если у options есть data-icon
             
             dropdown.remove();
         };
-        
         dropdown.appendChild(item);
     });
-    
+
     document.body.appendChild(dropdown);
-    
+
+    // Закрытие при клике вне
     setTimeout(() => {
         document.addEventListener('click', function close(e) {
             if (!dropdown.contains(e.target) && !wrapper.contains(e.target)) {
@@ -485,6 +546,10 @@ function toggleDropdown(productId) {
         });
     }, 0);
 }
+
+
+
+
 
 // Добавление в корзину
 function addToCart(productId) {
@@ -884,6 +949,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
