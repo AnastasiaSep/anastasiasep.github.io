@@ -1108,7 +1108,7 @@ footer p {
     height: 100vh;
     background: rgba(0, 0, 0, 0.85);
     z-index: 1200;
-    backdrop-filter: blur(3px); 
+    backdrop-filter: blur(2px); 
 }
 .checkout-form {
     /* background: #1a1b26; */
@@ -1334,6 +1334,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
