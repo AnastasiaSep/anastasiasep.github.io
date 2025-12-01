@@ -1212,73 +1212,42 @@ footer p {
 }
 
 
-
-
-
-/* Исправление выпадающего списка (Dropdown) */
-.custom-dropdown {
-    position: absolute; /* Было fixed, что ломало позиционирование на мобильных */
-    background: #1a1b26; /* Темный фон под стиль сайта */
-    border: 1px solid #ff2e93; /* Неоновая рамка */
-    border-radius: 14px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-    max-height: 200px;
-    overflow-y: auto;
-    width: 100%; /* Чтобы ширина была равна родительскому блоку */
-    left: 0;
-    top: 100%; /* Ровно под кнопкой */
-    margin-top: 5px; /* Небольшой отступ */
-}
-
-.custom-dropdown > div {
-    padding: 1rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: #e2e8f0; /* Светлый текст */
-    font-weight: 500;
-    border-bottom: 1px solid rgba(255,255,255,0.05); /* Разделители */
-}
-
-.custom-dropdown > div:last-child {
-    border-bottom: none;
-}
-
-.custom-dropdown > div:hover {
-    background: rgba(255, 46, 147, 0.1); /* Розовая подсветка при наведении */
-    color: #ff2e93;
-}
-
-
-
-
-
-
-
-
+/* --- ЕДИНЫЙ СТИЛЬ ДЛЯ ВСЕХ ВЫПАДАЮЩИХ СПИСКОВ --- */
 
 .custom-dropdown {
-    background-color: #1a1b26 !important;
-    border: 1px solid #ff2e93 !important;
+    position: absolute; /* Важно для позиционирования */
+    background-color: #1a1b26 !important; /* Темный фон */
+    border: 1px solid #ff2e93 !important; /* Неоновая рамка */
     border-radius: 12px !important;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.8) !important;
-    z-index: 99999 !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8) !important;
+    z-index: 99999 !important; /* Поверх всего */
     max-height: 250px;
     overflow-y: auto;
+    /* Ширина задается в JS, но min-width не помешает */
+    min-width: 150px;
 }
 
+/* Пункты списка */
 .custom-dropdown > div {
-    color: #ffffff !important;
-    padding: 12px 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 12px 16px !important;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #ffffff !important; /* Белый текст */
+    font-weight: 500;
+    background-color: #1a1b26 !important; /* Темный фон каждого пункта */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; /* Разделитель */
 }
 
+/* Последний пункт без линии */
+.custom-dropdown > div:last-child {
+    border-bottom: none !important;
+}
+
+/* ПРИ НАВЕДЕНИИ (HOVER) */
 .custom-dropdown > div:hover {
-    background-color: #ff2e93 !important;
+    background-color: #ff2e93 !important; /* Ярко-розовый фон */
+    color: #ffffff !important; /* Белый текст */
 }
-
-
-
 
 
 
@@ -1345,6 +1314,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
