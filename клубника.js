@@ -236,80 +236,76 @@ function closeDetailModalOnOverlay(event) {
     }
 }
 
+
+
+
+
+
 // Переключение выпадающего списка в модальном окне
 function toggleDetailDropdown() {
     const select = document.getElementById('detailQuantitySelect');
     const wrapper = document.querySelector('.detail-select-with-icon');
-    
-    // Удаляем старые dropdown
+
+    // Удаляем старые dropdown, если есть
     document.querySelectorAll('.custom-dropdown').forEach(d => d.remove());
+
+    // Если уже был открыт и мы кликнули снова — закрываем (удаление уже произошло выше)
+    // Можно добавить проверку, если нужно переключение, но пока оставим простую логику "пересоздания"
     
     // Создаём кастомный dropdown
     const dropdown = document.createElement('div');
     dropdown.className = 'custom-dropdown';
-    
+
     const rect = wrapper.getBoundingClientRect();
+
+    // Задаем ТОЛЬКО позиционирование. Всё остальное (цвета, рамки) берем из CSS
+    // Важно: используем absolute относительно документа или fixed, но с правильными координатами
+    dropdown.style.position = 'fixed'; 
+    dropdown.style.top = (rect.bottom + 5) + 'px';
+    dropdown.style.left = rect.left + 'px';
+    dropdown.style.width = rect.width + 'px';
     
-    dropdown.style.cssText = `
-        position: fixed;
-        top: ${rect.bottom + 5}px;
-        left: ${rect.left}px;
-        width: ${rect.width}px;
-        background: white;
-        border: 2px solid #ff4d6d;
-        border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        z-index: 9999;
-        max-height: 250px;
-        overflow-y: auto;
-    `;
-    
-    Array.from(select.options).forEach((option, index) => {
+    // Остальные стили убраны, они подтянутся из CSS класса .custom-dropdown
+
+    // Заполняем опциями
+    Array.from(select.options).forEach(option => {
         const item = document.createElement('div');
         item.textContent = option.text;
-        item.style.cssText = `
-            padding: 1rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            ${index === select.selectedIndex ? 'background: #ffe0e5; font-weight: 600;' : ''}
-        `;
-        
-        item.onmouseover = () => item.style.background = '#ffe0e5';
-        item.onmouseout = () => {
-            if (index !== select.selectedIndex) item.style.background = 'white';
+        item.onclick = function() {
+            select.value = option.value;
+            select.dispatchEvent(new Event('change')); // Триггерим изменение
+            
+            // Обновляем текст в селекте
+            const selectedTextDiv = document.getElementById('detailSelectedText');
+            if (selectedTextDiv) selectedTextDiv.textContent = option.text;
+            
+            dropdown.remove(); // Закрываем
         };
-        
-        item.onclick = () => {
-        select.selectedIndex = index;
-        
-        // Обновляем текст
-        document.getElementById('detailSelectedText').textContent = option.text;
-        
-        // Сбрасываем счётчик при смене размера
-        detailCounter = 1;
-        document.getElementById('detailCounter').textContent = '1';
-        
-        // Обновляем цену
-        updateDetailTotalPrice(); // ← вместо прямого обновления
-        
-        dropdown.remove();
-    };
-
-        
         dropdown.appendChild(item);
     });
-    
+
+    // Добавляем в body, чтобы не зависеть от overflow родителя
     document.body.appendChild(dropdown);
-    
+
+    // Закрытие при клике вне
     setTimeout(() => {
-        document.addEventListener('click', function close(e) {
+        document.addEventListener('click', function closeDropdown(e) {
             if (!dropdown.contains(e.target) && !wrapper.contains(e.target)) {
                 dropdown.remove();
-                document.removeEventListener('click', close);
+                document.removeEventListener('click', closeDropdown);
             }
         });
     }, 0);
 }
+
+
+
+
+
+
+
+
+
 
 // Увеличить счетчик в модальном окне
 function increaseDetailCounter() {
@@ -888,6 +884,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
