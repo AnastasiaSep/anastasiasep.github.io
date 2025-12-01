@@ -130,7 +130,7 @@ nav a:hover {
     visibility: hidden;
     transition: all 0.3s;
     z-index: 1999;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(2px);
 }
 
 .cart-overlay.active {
@@ -1334,6 +1334,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
