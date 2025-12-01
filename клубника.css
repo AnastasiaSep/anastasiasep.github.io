@@ -428,6 +428,7 @@ nav a:hover {
 }
 
 .product-detail-quantity-selector {
+    position: relative; 
     margin-bottom: 1.2rem;
 }
 
@@ -1249,11 +1250,6 @@ footer p {
     color: #ff2e93;
 }
 
-/* Важно: родительский блок должен иметь position: relative, чтобы absolute работало корректно */
-.product-detail-quantity-selector {
-    position: relative; 
-}
-
 
 
 /* Адаптация */
@@ -1319,4 +1315,5 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
