@@ -1348,23 +1348,6 @@ footer p {
 
 
 
-#checkoutModal {
-  display: none;
-  position: fixed;
-  left: 0; top: 0; width: 100vw; height: 100vh;
-  align-items: center; justify-content: center;
-  z-index: 1201;
-  background: none;
-}
-
-#checkoutOverlay {
-  display: none;
-  position: fixed; left:0; top:0;
-  width: 100vw; height: 100vh;
-  background: rgba(198,24,74, 0.09); /* нежный ягодный прозрачный */
-  z-index: 1200;
-}
-
 
 #phoneCountry {
   font-size: 1em;                  
@@ -1390,5 +1373,6 @@ footer p {
   border-color: #c9184a;
   background: #fff3fa;
 }
+
 
 
