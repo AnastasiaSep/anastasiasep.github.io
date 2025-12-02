@@ -1124,6 +1124,29 @@ footer p {
     border: 1px solid rgba(255,255,255,0.1);
     border-top: 1px solid rgba(255,255,255,0.2); /* Подсветка сверху */
 } */
+
+.checkout-form {
+    /* ПРАВИЛЬНЫЙ ТЕМНО-СИНИЙ ФОН (как на первом скрине) */
+    background: #2d2f42; 
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    padding: 2.3em 1.8em 1.3em 1.8em;
+    /* Ширина для ПК, но ограниченная */
+    width: 100%;
+    max-width: 500px; /* Чтобы на больших экранах не растягивалась */
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.13em;
+    position: relative;
+    
+    /* РАМКИ (белая сверху и по краям) */
+    border: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.2);
+    
+    box-sizing: border-box;
+}
+/* 
 .checkout-form {
     /* Вернул ваш темный фон, который был раньше */
     background: #2d2f42; 
@@ -1148,7 +1171,7 @@ footer p {
     
     /* Важно: убедитесь, что box-sizing включен, чтобы padding не ломал ширину */
     box-sizing: border-box; 
-}
+} */
 
 
 
@@ -1391,6 +1414,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
