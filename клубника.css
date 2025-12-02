@@ -1108,8 +1108,7 @@ footer p {
     z-index: 1200;
     backdrop-filter: blur(2px); 
 }
-.checkout-form {
-    /* background: #1a1b26; */
+/* .checkout-form {
     background:#2d2f42;
     border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
@@ -1123,29 +1122,31 @@ footer p {
     position: relative;
     border: 1px solid rgba(255,255,255,0.1);
     border-top: 1px solid rgba(255,255,255,0.2); /* Подсветка сверху */
-}
-/* 
+} */
+
 .checkout-form {
-    /* ПРАВИЛЬНЫЙ ТЕМНО-СИНИЙ ФОН (как на первом скрине) */
-    background: #2d2f42; 
+    background:#2d2f42;
     border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     padding: 2.3em 1.8em 1.3em 1.8em;
-    /* Ширина для ПК, но ограниченная */
-    width: 100%;
-    max-width: 500px; /* Чтобы на больших экранах не растягивалась */
+    /* ИСПРАВЛЕНИЕ ШИРИНЫ */
+    width: 100%;        /* Занимает всё доступное место, но... */
+    max-width: 450px;   /* ...не шире 450 пикселей (оптимальный размер) */
+    /* Если 450 покажется узким, поставьте 500px */
+    min-width: 300px;   /* Чтобы на совсем старых телефонах не схлопнулось */
+    /* min-width: 340px; <- Это можно убрать, 300 безопаснее */
     min-height: 430px;
     display: flex;
     flex-direction: column;
     gap: 1.13em;
     position: relative;
-    
-    /* РАМКИ (белая сверху и по краям) */
     border: 1px solid rgba(255,255,255,0.1);
     border-top: 1px solid rgba(255,255,255,0.2);
     
-    /* box-sizing: border-box; */
-} */
+    /* Важно для мобильных: немного отступов от края экрана */
+    margin: 20px; 
+}
+
 
 
 .checkout-form h2 {
@@ -1387,6 +1388,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
