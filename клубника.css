@@ -1277,6 +1277,7 @@ footer p {
     nav .container {
         padding: 0 20px;
     }
+}
 
     .checkout-form {
         /* Тут мы говорим: "На больших экранах ширина формы - ровно 500px" */
@@ -1285,7 +1286,6 @@ footer p {
         /* Центрируем форму, если вдруг она съехала */
         margin: auto; 
     }
-}
    /* Вставьте это ВНУТРЬ @media (max-width: 768px) { ... } в самом конце */
 
     .close-detail-modal {
@@ -1375,6 +1375,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
