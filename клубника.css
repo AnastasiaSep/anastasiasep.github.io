@@ -1108,7 +1108,7 @@ footer p {
     z-index: 1200;
     backdrop-filter: blur(2px); 
 }
-/* .checkout-form {
+.checkout-form {
     /* background: #1a1b26; */
     background:#2d2f42;
     border-radius: 24px;
@@ -1123,8 +1123,8 @@ footer p {
     position: relative;
     border: 1px solid rgba(255,255,255,0.1);
     border-top: 1px solid rgba(255,255,255,0.2); /* Подсветка сверху */
-} */
-
+}
+/* 
 .checkout-form {
     /* ПРАВИЛЬНЫЙ ТЕМНО-СИНИЙ ФОН (как на первом скрине) */
     background: #2d2f42; 
@@ -1145,7 +1145,7 @@ footer p {
     border-top: 1px solid rgba(255,255,255,0.2);
     
     /* box-sizing: border-box; */
-}
+} */
 
 
 .checkout-form h2 {
@@ -1387,6 +1387,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
