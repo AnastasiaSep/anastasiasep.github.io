@@ -1280,8 +1280,8 @@ footer p {
 
     .checkout-form {
         /* Тут мы говорим: "На больших экранах ширина формы - ровно 500px" */
-        width: 500px; 
-        max-width: 500px; 
+        width: 400px; 
+        max-width: 400px; 
         /* Центрируем форму, если вдруг она съехала */
         margin: auto; 
     }
@@ -1375,6 +1375,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
