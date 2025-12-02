@@ -306,7 +306,7 @@ nav a:hover {
     margin-bottom: 1rem;
 }
 
-/* Модальное окно деталей продукта */
+/* Модальное окно деталей продукта (ИСПРАВЛЕНО ДЛЯ SCROLL) */
 .product-detail-modal {
     position: fixed;
     top: 0;
@@ -315,13 +315,16 @@ nav a:hover {
     height: 100%;
     background: rgba(0, 0, 0, 0.9);
     display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 3000;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s;
     backdrop-filter: blur(5px);
+    /* ФИКС СКРОЛЛА */
+    overflow-y: auto;
+    align-items: center; /* Центрирование по вертикали для десктопа */
+    justify-content: center;
+    padding: 20px;
 }
 
 .product-detail-modal.active {
@@ -331,27 +334,32 @@ nav a:hover {
 
 .product-detail-content {
     background: #1a1b26;
-    width: 90%;
+    width: 100%;
     max-width: 1100px;
-    max-height: 90vh;
+    /* Убрали жесткий max-height: 90vh, чтобы контент не обрезался */
     border-radius: 24px;
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
     box-shadow: 0 0 50px rgba(189, 0, 255, 0.2); /* Фиолетовое свечение */
     border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    margin: auto; /* Помогает центрировать при скролле */
 }
-// картинка
+
+/* КАРТИНКИ (ФИКС ДЛЯ НОУТБУКА) */
 #detailModalImage {
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 0; margin: 0;
 }
 
 #detailModalImage img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Растягиваем картинку */
+    display: block;
 }
 
 .product-detail-image {
@@ -360,12 +368,12 @@ nav a:hover {
     padding: 0;
     height: 100%;
     min-height: 400px;
-    max-height: 500px;
+    /* УБРАЛИ max-height: 500px - ЭТО ЛОМАЛО РАСТЯГИВАНИЕ */
 }
 
 .product-detail-info {
     padding: 2rem 2.5rem;
-    overflow-y: auto;
+    /* overflow-y: auto; -> Убрали, теперь скроллится всё окно */
     position: relative;
     color: #e2e8f0;
 }
@@ -574,24 +582,6 @@ nav a:hover {
     border-color: #ff2e93;
 }
 
-/* Адаптация для мобильных */
-@media (max-width: 768px) {
-    .product-detail-content {
-        grid-template-columns: 1fr;
-        width: 95%;
-        max-height: 85vh;
-    }
-
-    .product-detail-image {
-        height: 250px;
-        min-height: 250px;
-    }
-
-    .product-detail-info {
-        padding: 1.5rem;
-    }
-}
-
 /* Герой */
 #hero {
     background: 
@@ -738,7 +728,8 @@ h2 {
 
 .product-image-wrapper {
     position: relative;
-    height: 400px;
+    /* Убрали жесткий height: 400px */
+    height: 400px; 
     overflow: hidden;
     background: #000;
 }
@@ -1268,10 +1259,7 @@ footer p {
     color: #ffffff !important; /* Белый текст */
 }
 
-
-
-
-/* Адаптация */
+/* Адаптация для мобильных (ПОЛНЫЙ ФИКС) */
 @media (max-width: 768px) {
     nav .container {
         padding: 0 20px;
@@ -1290,20 +1278,36 @@ footer p {
         right: -100%;
     }
 
-    .product-detail-content {
-        grid-template-columns: 1fr;
-        width: 95%;
-        max-height: 95vh;
+    /* --- ФИКС МОДАЛЬНОГО ОКНА ТОВАРА НА ТЕЛЕФОНЕ --- */
+    .product-detail-modal {
+        padding: 0; /* Убираем отступы, чтобы было на весь экран */
+        align-items: flex-start; /* Важно! Чтобы начиналось сверху */
     }
 
+    .product-detail-content {
+        grid-template-columns: 1fr; /* Одна колонка */
+        width: 100%;
+        height: 100%; /* На всю высоту экрана */
+        max-height: none; /* Убираем ограничения высоты */
+        border-radius: 0; /* Убираем скругления */
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto; /* Скролл внутри контента */
+    }
+
+    .product-image-wrapper, 
     .product-detail-image {
-        height: 300px;
+        height: auto;
+        flex: 0 0 40vh; /* Картинка занимает 40% экрана */
+        min-height: 250px;
     }
 
     .product-detail-info {
-        padding: 2rem;
+        padding: 1.5rem;
+        flex: 1 0 auto; /* Текст занимает остальное место и растягивается */
     }
 
+    /* Остальные блоки */
     #hero {
         padding: 5rem 20px 4rem;
     }
@@ -1334,19 +1338,3 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
