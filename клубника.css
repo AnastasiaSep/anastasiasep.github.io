@@ -344,13 +344,13 @@ nav a:hover {
 // картинка
 #detailModalImage {
     width: 100% !important;
-    height: 200% !important;
+    height: 100% !important;
     display: block !important;
 }
 
 #detailModalImage img {
     width: 100% !important;
-    height: 170% !important;
+    height: 100% !important;
     object-fit: cover !important;
 }
 
@@ -1334,6 +1334,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
