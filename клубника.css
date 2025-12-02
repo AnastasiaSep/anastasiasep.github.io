@@ -1123,29 +1123,31 @@ footer p {
     border: 1px solid rgba(255,255,255,0.1);
     border-top: 1px solid rgba(255,255,255,0.2); /* Подсветка сверху */
 } */
-
 .checkout-form {
-    background:#2d2f42;
-    border-radius: 24px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    padding: 2.3em 1.8em 1.3em 1.8em;
-    /* ИСПРАВЛЕНИЕ ШИРИНЫ */
-    width: 100%;        /* Занимает всё доступное место, но... */
-    max-width: 450px;   /* ...не шире 450 пикселей (оптимальный размер) */
-    /* Если 450 покажется узким, поставьте 500px */
-    min-width: 300px;   /* Чтобы на совсем старых телефонах не схлопнулось */
-    /* min-width: 340px; <- Это можно убрать, 300 безопаснее */
-    min-height: 430px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.13em;
-    position: relative;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-top: 1px solid rgba(255,255,255,0.2);
+    /* ЖЕСТКО ЗАДАЕМ ФОН И ЦВЕТ */
+    background-color: #2d2f42 !important; 
+    background: #2d2f42 !important; 
     
-    /* Важно для мобильных: немного отступов от края экрана */
-    margin: 20px; 
+    /* РАЗМЕРЫ */
+    width: 100% !important;
+    max-width: 500px !important; /* Ограничиваем ширину */
+    min-height: 430px !important;
+    
+    /* ОТСТУПЫ И РАМКИ */
+    padding: 40px !important;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    
+    /* ПОЗИЦИОНИРОВАНИЕ */
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    margin: auto !important; /* Центрируем форму */
 }
+
 
 
 
@@ -1388,6 +1390,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
