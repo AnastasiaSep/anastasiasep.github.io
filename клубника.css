@@ -1265,6 +1265,24 @@ footer p {
         padding: 0 20px;
     }
 
+
+   
+   /* Вставьте это ВНУТРЬ @media (max-width: 768px) { ... } в самом конце */
+
+    .close-detail-modal {
+        position: fixed; /* Фиксируем относительно экрана */
+        top: 15px;       /* Отступ сверху */
+        right: 15px;     /* Отступ справа */
+        z-index: 3001;   /* Чтобы точно был поверх всего, даже картинки */
+        background: rgba(0, 0, 0, 0.6); /* Делаем фон темнее, чтобы видно было на картинке */
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+/* Конец вставки */
+
+
+   
     nav ul {
         gap: 1.5rem;
     }
@@ -1338,3 +1356,4 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
