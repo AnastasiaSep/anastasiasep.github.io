@@ -1124,25 +1124,32 @@ footer p {
     border: 1px solid rgba(255,255,255,0.1);
     border-top: 1px solid rgba(255,255,255,0.2); /* Подсветка сверху */
 } */
-
 .checkout-form {
-    background: #2d2f42;
+    /* Вернул ваш темный фон, который был раньше */
+    background: #2d2f42; 
     border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     padding: 2.3em 1.8em 1.3em 1.8em;
-    /* ВОТ ТУТ МЕНЯЕМ: */
-    width: 500px;      /* Стандартная ширина для ПК */
-    max-width: 90%;    /* Чтобы на телефоне не вылезало за края */
+    /* Вот тут я задаю адекватную ширину, но ограничиваю её */
+    width: 100%;       /* По умолчанию на весь экран */
+    max-width: 500px;  /* Но не шире 500px на ПК */
     
-    /* min-width: 340px; <-- Можно убрать или оставить */
+    /* Минимальная высота, чтобы не сплющивало */
     min-height: 430px;
+    
     display: flex;
     flex-direction: column;
     gap: 1.13em;
     position: relative;
+    
+    /* Рамки */
     border: 1px solid rgba(255,255,255,0.1);
     border-top: 1px solid rgba(255,255,255,0.2);
+    
+    /* Важно: убедитесь, что box-sizing включен, чтобы padding не ломал ширину */
+    box-sizing: border-box; 
 }
+
 
 
 .checkout-form h2 {
@@ -1384,6 +1391,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
