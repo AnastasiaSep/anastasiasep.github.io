@@ -4,94 +4,184 @@ const products = [
     {
         id: 1,
         name: 'Набор "Сладкая девочка"',
-        description: 'На фото размер L (55-57ягод)',
-        fullDescription: 'Набор "Сладкая девочка" - идеальный выбор. Каждая сочная клубника обволакивается нежным белым и молочным Бельгийским шоколадом, украшается кокосовой стружкой.  Подарите своим близким незабываемые моменты.',
+        description: 'На фото размер 9 ягод',
+        fullDescription: 'Набор "Сладкая девочка" - идеальный выбор. Каждая сочная клубника обволакивается нежным белым и розовым шоколадом, украшается кокосовой стружкой.',
         price: 3290,
-        image: '1.jpg',
-        composition: 'Клубника, шоколад молочный, шоколад белый, кокосовая стружка, посыпка звездочки и сердечки',
-        sizes: 'S (18-20 ягод) | M (35-37 ягод) | L (55-57 ягод) ',
+        image: '12.jpg',
+        composition: 'Клубника, шоколад белый, кокосовая стружка, посыпка шарики',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: 'S (18-20)', value: 's', priceModifier: 1 },
-            { label: 'M (35-37)', value: 'm', priceModifier: 1.5 },
-            { label: 'L (55-57)', value: 'l', priceModifier: 2 }
+            { label: '6 ягод', value: '6', priceModifier: 1.2 },
+            { label: '8 ягод', value: '8', priceModifier: 1.27 },
+            { label: '9 ягод', value: '9', priceModifier: 1.3 },
+            { label: '12 ягод', value: '12', priceModifier: 1.4 },
+            { label: '16 ягод', value: '16', priceModifier: 1.53 },
+            { label: '18 ягод', value: '18', priceModifier: 1.6 },
+            { label: '24 ягоды', value: '24', priceModifier: 1.8 },
+            { label: '27 ягоды', value: '27', priceModifier: 1.9 }
         ]
     },
+    
     {
         id: 2,
         name: 'Набор "Golden Strawberry"',
-        description: 'Клубника в золотом шоколаде',
-        fullDescription: 'Эксклюзивный набор клубники, покрытой золотым бельгийским шоколадом с добавлением съедобного золота. Роскошный подарок для особенных случаев.',
+        description: 'На фото размер 9 ягод',
+        fullDescription: 'Эксклюзивный набор клубники, покрытой белым и молочным шоколадом с добавлением съедобного золота.',
         price: 1890,
         priceOld: 2100,
-        image: '2.jpg',
-        composition: 'Клубника, шоколад молочный, пищевое золото, орехи',
-        sizes: '9-12 ягод | 18-20 ягод | 25-30 ягод',
+        image: '14.jpg',
+        composition: 'Клубника, шоколад молочный, шоколад белый, пищевое золото',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '9-12 ягод', value: '9-12', priceModifier: 1 },
-            { label: '18-20 ягод', value: '18-20', priceModifier: 1.8 },
-            { label: '25-30 ягод', value: '25-30', priceModifier: 2.5 }
+            { label: '6 ягод', value: '6', priceModifier: 1.2 },
+            { label: '8 ягод', value: '8', priceModifier: 1.27 },
+            { label: '9 ягод', value: '9', priceModifier: 1.3 },
+            { label: '12 ягод', value: '12', priceModifier: 1.4 },
+            { label: '16 ягод', value: '16', priceModifier: 1.53 },
+            { label: '18 ягод', value: '18', priceModifier: 1.6 },
+            { label: '24 ягоды', value: '24', priceModifier: 1.8 },
+            { label: '27 ягоды', value: '27', priceModifier: 1.9 }
         ]
     },
+ 
+
     {
-        id: 3,
+    id: 3,
         name: 'Набор "Клубничная драма"',
-        description: 'Клубника с сердцечками',
+        description: 'На фото размер 12 ягод',
         fullDescription: 'Идеальный подарок для любителей изысканных десертов.',
         price: 2890,
-        image: '3.jpg',
-        composition: 'Клубника, шоколад, декор',
-        sizes: 'XS (13 ягод) | S (20-25 ягод) | M (35-40 ягод)',
+        image: '15.jpg',
+        composition: 'Клубника, молочный шоколад, тёмный шоколад, белый шоколад, декор',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: 'XS (13)', value: 'xs', priceModifier: 1 },
-            { label: 'S (20-25)', value: 's', priceModifier: 1.4 },
-            { label: 'M (35-40)', value: 'm', priceModifier: 2 }
+             { label: '6 ягод', value: '6', priceModifier: 1.2 },
+            { label: '8 ягод', value: '8', priceModifier: 1.27 },
+            { label: '9 ягод', value: '9', priceModifier: 1.3 },
+            { label: '12 ягод', value: '12', priceModifier: 1.4 },
+            { label: '16 ягод', value: '16', priceModifier: 1.53 },
+            { label: '18 ягод', value: '18', priceModifier: 1.6 },
+            { label: '24 ягоды', value: '24', priceModifier: 1.8 },
+            { label: '27 ягоды', value: '27', priceModifier: 1.9 }
         ]
     },
     {
         id: 4,
         name: 'Набор "Люкс"',
-        description: 'С орехами и золотой посыпкой',
-        fullDescription: 'Премиальный набор с отборной клубникой, покрытой бельгийским шоколадом и украшенной орехами, кокосом и золотой посыпкой.',
+        description: 'На фото размер 9 ягод',
+        fullDescription: 'Премиальный набор с клубникой, покрытой бельгийским шоколадом и украшенной орехами, кокосом и золотой посыпкой.',
         price: 3500,
-        image: '4.jpg',
-        composition: 'Клубника, шоколад премиум, орехи, кокос, золотая посыпка',
-        sizes: '12 ягод | 24 ягоды | 36 ягод',
+        image: '17.jpg',
+        composition: 'Клубника, тёмный шоколад, молочный шоколад, кокосовая стружка, золотая посыпка',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '12 ягод', value: '12', priceModifier: 1 },
-            { label: '24 ягоды', value: '24', priceModifier: 1.9 },
-            { label: '36 ягод', value: '36', priceModifier: 2.8 }
+            { label: '6 ягод', value: '6', priceModifier: 1.2 },
+            { label: '8 ягод', value: '8', priceModifier: 1.27 },
+            { label: '9 ягод', value: '9', priceModifier: 1.3 },
+            { label: '12 ягод', value: '12', priceModifier: 1.4 },
+            { label: '16 ягод', value: '16', priceModifier: 1.53 },
+            { label: '18 ягод', value: '18', priceModifier: 1.6 },
+            { label: '24 ягоды', value: '24', priceModifier: 1.8 },
+            { label: '27 ягоды', value: '27', priceModifier: 1.9 }
         ]
     },
     {
         id: 5,
         name: 'Набор "Страсть пополам"',
-        description: 'В подарочной коробке с декором',
-        fullDescription: 'Романтический набор из клубники в шоколаде, оформленный в элегантной подарочной коробке. Идеален для признаний в любви.',
+        description: 'На фото размер 9 ягод',
+        fullDescription: 'Набор из клубники в молочном и белом шоколаде с посыпкой ',
         price: 2200,
-        image: '6.jpg',
-        composition: 'Клубника, шоколад молочный и белый, розовый декор',
-        sizes: 'Small (15 ягод) | Medium (25 ягод) | Large (40 ягод)',
+        image: '13.jpg',
+        composition: 'Клубника, молочный шоколад, белый шоколад, розовый декор',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: 'Small (15 ягод)', value: 'small', priceModifier: 1 },
-            { label: 'Medium (25 ягод)', value: 'medium', priceModifier: 1.6 },
-            { label: 'Large (40 ягод)', value: 'large', priceModifier: 2.5 }
+            { label: '6 ягод', value: '6', priceModifier: 1.2 },
+            { label: '8 ягод', value: '8', priceModifier: 1.27 },
+            { label: '9 ягод', value: '9', priceModifier: 1.3 },
+            { label: '12 ягод', value: '12', priceModifier: 1.4 },
+            { label: '16 ягод', value: '16', priceModifier: 1.53 },
+            { label: '18 ягод', value: '18', priceModifier: 1.6 },
+            { label: '24 ягоды', value: '24', priceModifier: 1.8 },
+            { label: '27 ягоды', value: '27', priceModifier: 1.9 }
         ]
     },
-    {
+    // {
+    //     id: 6,
+    //     name: 'Набор "Праздничный"',
+    //     description: 'В подарочной коробке с декором',
+    //     fullDescription: 'Праздничный набор с уникальным дизайном под ваш заказ. Возможно оформление под любую тематику.',
+    //     price: 4200,
+    //     image: '5.jpg',
+    //     composition: 'Клубника, шоколад ассорти, индивидуальный декор',
+    //     sizes: '20 ягод | 35 ягод | 50 ягод',
+    //     quantities: [
+    //         { label: '20 ягод', value: '20', priceModifier: 1 },
+    //         { label: '35 ягод', value: '35', priceModifier: 1.7 },
+    //         { label: '50 ягод', value: '50', priceModifier: 2.3 }
+    //     ]
+    // },
+     {
         id: 6,
-        name: 'Набор "Праздничный"',
-        description: 'С индивидуальным дизайном',
-        fullDescription: 'Праздничный набор с уникальным дизайном под ваш заказ. Возможно оформление под любую тематику.',
-        price: 4200,
-        image: '5.jpg',
-        composition: 'Клубника, шоколад ассорти, индивидуальный декор',
-        sizes: '20 ягод | 35 ягод | 50 ягод',
+        name: 'Набор "Райское наслаждение"',
+        description: 'На фото размер 9 ягод',
+        fullDescription: 'Сочетание сочной клубники с нежным темным и молочным шоколадом, украшенный кокосовой стружкой.',
+        price: 3290,
+        image: '16.jpg',
+        composition: 'Клубника, шоколад молочный, шоколад тёмный, кокосовая стружка',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '20 ягод', value: '20', priceModifier: 1 },
-            { label: '35 ягод', value: '35', priceModifier: 1.7 },
-            { label: '50 ягод', value: '50', priceModifier: 2.3 }
+            { label: '6 ягод', value: '6', priceModifier: 1.2 },
+            { label: '8 ягод', value: '8', priceModifier: 1.27 },
+            { label: '9 ягод', value: '9', priceModifier: 1.3 },
+            { label: '12 ягод', value: '12', priceModifier: 1.4 },
+            { label: '16 ягод', value: '16', priceModifier: 1.53 },
+            { label: '18 ягод', value: '18', priceModifier: 1.6 },
+            { label: '24 ягоды', value: '24', priceModifier: 1.8 },
+            { label: '27 ягоды', value: '27', priceModifier: 1.9 }
+        ]
+    },
+      {
+        id: 7,
+        name: 'Набор "Шоколадная симфония"',
+        description: 'На фото размер 9 ягод',
+        fullDescription: 'Изящная коллекция клубники в белом и молочном шоколаде с разными видами декора: от воздушной кокосовой стружки до нежных сахарных жемчужин и золотых акцентов. ',
+        price: 3290,
+        image: '11.jpg',
+        composition: 'Клубника, шоколад белый, шоколад молочный, кокосовая стружка, посыпка шарики',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
+        quantities: [
+            { label: '6 ягод', value: '6', priceModifier: 1.2 },
+            { label: '8 ягод', value: '8', priceModifier: 1.27 },
+            { label: '9 ягод', value: '9', priceModifier: 1.3 },
+            { label: '12 ягод', value: '12', priceModifier: 1.4 },
+            { label: '16 ягод', value: '16', priceModifier: 1.53 },
+            { label: '18 ягод', value: '18', priceModifier: 1.6 },
+            { label: '24 ягоды', value: '24', priceModifier: 1.8 },
+            { label: '27 ягоды', value: '27', priceModifier: 1.9 }
+        ]
+    },
+
+      {
+        id: 8,
+        name: 'Набор "Классика"',
+        description: 'На фото размер 9 ягод',
+        fullDescription: 'Набор из ягод в молочном и белом шоколаде с аккуратным декором – сдержанный, стильный и универсальный вариант для любого повода.',
+        price: 3290,
+        image: '18.jpg',
+        composition: 'Клубника, тёмный шоколад, белый шоколад, молочный шоколад, золотая посыпка',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
+        quantities: [
+            { label: '6 ягод', value: '6', priceModifier: 1.2 },
+            { label: '8 ягод', value: '8', priceModifier: 1.27 },
+            { label: '9 ягод', value: '9', priceModifier: 1.3 },
+            { label: '12 ягод', value: '12', priceModifier: 1.4 },
+            { label: '16 ягод', value: '16', priceModifier: 1.53 },
+            { label: '18 ягод', value: '18', priceModifier: 1.6 },
+            { label: '24 ягоды', value: '24', priceModifier: 1.8 },
+            { label: '27 ягоды', value: '27', priceModifier: 1.9 }
         ]
     }
+    
 ];
 
 // Корзина
@@ -957,6 +1047,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
