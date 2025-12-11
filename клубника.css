@@ -969,7 +969,7 @@ h2 {
 }
 
 .gallery-item:hover img {
-    transform: scale(1.08);
+    transform: scale(1.1);
     opacity: 1;
 }
 
@@ -1341,4 +1341,5 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
