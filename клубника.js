@@ -166,7 +166,70 @@ const products = [
             { label: '24 ягоды', value: '24', price: 1515000 },
             { label: '27 ягоды', value: '27', price: 1707000 }
         ]
-    }
+    },
+       // 9. Only Milk (Classic):
+    {
+        id: 9,
+        name: 'Набор "Only Milk"',
+        description: 'На фото размер 9 ягод',
+        fullDescription: 'Классика. Клубника в молочном шоколаде.',
+        image: '19.JPG',
+        composition: 'Клубника, молочный шоколад',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
+        quantities: [
+            { label: '6 ягод',  value: '6',  price: 385000 },
+            { label: '8 ягод',  value: '8',  price: 513000 },
+            { label: '9 ягод',  value: '9',  price: 583000 },
+            { label: '12 ягод', value: '12', price: 771000 },
+            { label: '16 ягод', value: '16', price: 1025000 },
+            { label: '18 ягод', value: '18', price: 1153000 },
+            { label: '24 ягоды', value: '24', price: 1538000 },
+            { label: '27 ягоды', value: '27', price: 1730000 }
+        ]
+    },
+    
+    // 10. Only Dark (Classic):
+    {
+        id: 10,
+        name: 'Набор "Only Dark"',
+        description: 'На фото размер 9 ягод',
+        fullDescription: 'Классика. Клубника в тёмном шоколаде.',
+        image: '20.JPG',
+        composition: 'Клубника, тёмный шоколад',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
+        quantities: [
+            { label: '6 ягод',  value: '6',  price: 385000 },
+            { label: '8 ягод',  value: '8',  price: 513000 },
+            { label: '9 ягод',  value: '9',  price: 583000 },
+            { label: '12 ягод', value: '12', price: 771000 },
+            { label: '16 ягод', value: '16', price: 1025000 },
+            { label: '18 ягод', value: '18', price: 1153000 },
+            { label: '24 ягоды', value: '24', price: 1538000 },
+            { label: '27 ягоды', value: '27', price: 1730000 }
+        ]
+    },
+
+        // 11. Black & Pink:
+    {
+        id: 11,
+        name: 'Набор " Black & Pink"',
+        description: 'На фото размер 9 ягод',
+        fullDescription: 'Темные ягоды в розовых полосках, розовая клубника в посыпке и тёмные ягоды в кокосе/посыпке',
+        image: '11.JPG',
+        composition: 'Клубника, тёмный шоколад, розовый шоколад',
+        sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
+        quantities: [
+            { label: '6 ягод',  value: '6',  price: 385000 },
+            { label: '8 ягод',  value: '8',  price: 513000 },
+            { label: '9 ягод',  value: '9',  price: 583000 },
+            { label: '12 ягод', value: '12', price: 771000 },
+            { label: '16 ягод', value: '16', price: 1025000 },
+            { label: '18 ягод', value: '18', price: 1153000 },
+            { label: '24 ягоды', value: '24', price: 1538000 },
+            { label: '27 ягоды', value: '27', price: 1730000 }
+        ]
+    },
+
 ];
 
 // ===== КОРЗИНА И ОБЩИЕ ПЕРЕМЕННЫЕ =====
@@ -765,6 +828,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
