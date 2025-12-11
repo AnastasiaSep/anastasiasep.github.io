@@ -7,7 +7,7 @@ const products = [
         description: 'На фото размер 9 ягод',
         fullDescription: 'Набор "Сладкая девочка" - идеальный выбор. Каждая сочная клубника обволакивается нежным белым и розовым шоколадом, украшается кокосовой стружкой.',
         price: 3290,
-        image: '12.jpg',
+        image: '12.JPG',
         composition: 'Клубника, шоколад белый, кокосовая стружка, посыпка шарики',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -1047,6 +1047,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
