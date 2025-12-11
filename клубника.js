@@ -6,7 +6,7 @@ const products = [
         name: 'Набор "Сладкая девочка"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Набор "Сладкая девочка" - идеальный выбор. Каждая сочная клубника обволакивается нежным белым и розовым шоколадом, украшается кокосовой стружкой.',
-        image: '12.jpg',
+        image: '12.JPG',
         composition: 'Клубника, белый и розовый шоколад, кокосовая стружка, посыпка шарики',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -27,7 +27,7 @@ const products = [
         name: 'Набор "Golden Strawberry"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Эксклюзивный набор клубники, покрытой белым и молочным шоколадом с добавлением съедобного золота.',
-        image: '14.jpg',
+        image: '14.JPG',
         composition: 'Клубника, молочный шоколад, белый шоколад, пищевое золото',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -48,7 +48,7 @@ const products = [
         name: 'Набор "Клубничная драма"',
         description: 'На фото размер 12 ягод',
         fullDescription: 'Идеальный подарок для любителей изысканных десертов с миксом тёмного, молочного, белого и розового шоколада.',
-        image: '15.jpg',
+        image: '15.JPG',
         composition: 'Клубника, тёмный шоколад, молочный шоколад, белый шоколад, розовый шоколад, декор',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -69,7 +69,7 @@ const products = [
         name: 'Набор "Люкс"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Премиальный набор с клубникой, покрытой тёмным и молочным шоколадом и украшенной орехами, кокосом и золотой посыпкой.',
-        image: '17.jpg',
+        image: '17.JPG',
         composition: 'Клубника, тёмный шоколад, молочный шоколад, кокосовая стружка, золотая посыпка',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -90,7 +90,7 @@ const products = [
         name: 'Набор "Страсть пополам"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Набор из клубники в молочном и белом шоколаде с посыпкой и печеньем.',
-        image: '13.jpg',
+        image: '13.JPG',
         composition: 'Клубника, молочный шоколад, белый шоколад, печенье, розовый декор',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -111,7 +111,7 @@ const products = [
         name: 'Набор "Райское наслаждение"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Сочетание сочной клубники с нежным тёмным и молочным шоколадом, украшенной кокосовой стружкой.',
-        image: '16.jpg',
+        image: '16.JPG',
         composition: 'Клубника, молочный шоколад, тёмный шоколад, кокосовая стружка',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -132,7 +132,7 @@ const products = [
         name: 'Набор "Шоколадная симфония"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Изящная коллекция клубники в белом и молочном шоколаде с разными видами декора: от воздушной кокосовой стружки до нежных сахарных жемчужин и золотых акцентов.',
-        image: '11.jpg',
+        image: '11.JPG',
         composition: 'Клубника, белый шоколад, молочный шоколад, кокосовая стружка, посыпка шарики, золото',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -153,7 +153,7 @@ const products = [
         name: 'Набор "Классика"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Набор из ягод в тёмном, молочном и белом шоколаде с аккуратным декором и золотым акцентом.',
-        image: '18.jpg',
+        image: '18.JPG',
         composition: 'Клубника, тёмный шоколад, белый шоколад, молочный шоколад, золотая посыпка',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -169,17 +169,13 @@ const products = [
     }
 ];
 
-
-// Корзина
-// Загрузка корзины из localStorage
-// Корзина
-// Загрузка корзины из localStorage
+// ===== КОРЗИНА И ОБЩИЕ ПЕРЕМЕННЫЕ =====
 let cart = [];
 const savedCart = localStorage.getItem('cart');
 if (savedCart) {
     try {
         cart = JSON.parse(savedCart);
-        updateCart(); // Обновляем отображение корзины
+        updateCart();
     } catch (error) {
         console.error('Ошибка загрузки корзины:', error);
         cart = [];
@@ -190,7 +186,12 @@ let favorites = [];
 let currentDetailProduct = null;
 let detailCounter = 1;
 
-// Отрисовка продуктов
+// Форматирование цен с разделителями
+function formatPrice(value) {
+    return value.toLocaleString('ru-RU'); // 1 493 000
+}
+
+// ===== ОТРИСОВКА ТОВАРОВ НА ГЛАВНОЙ =====
 function renderProducts() {
     const productGrid = document.getElementById('productGrid');
     productGrid.innerHTML = products.map(product => `
@@ -208,7 +209,7 @@ function renderProducts() {
                 <p class="product-description">${product.description}</p>
 
                 <div class="product-price">
-                    ${product.quantities[0].price} ₫
+                    ${formatPrice(product.quantities[0].price)} ₫
                 </div>
 
                 <div class="quantity-selector">
@@ -243,7 +244,7 @@ function renderProducts() {
     `).join('');
 }
 
-// Открыть модальное окно с деталями продукта
+// ===== МОДАЛКА ТОВАРА =====
 function openProductDetail(productId) {
     const product = products.find(p => p.id === productId);
     if (!product) return;
@@ -251,12 +252,11 @@ function openProductDetail(productId) {
     currentDetailProduct = product;
     detailCounter = 1;
 
-    // Заполнить данные модального окна
     document.getElementById('detailModalImage').innerHTML =
         `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
     document.getElementById('detailModalTitle').textContent = product.name;
     document.getElementById('detailModalPrice').textContent =
-        `${product.quantities[0].price} ₫`;
+        `${formatPrice(product.quantities[0].price)} ₫`;
     document.getElementById('detailDescription').textContent = product.fullDescription;
     document.getElementById('detailSizes').innerHTML =
         product.sizes + '<br>Точное количество ягод зависит от размера ягоды';
@@ -266,7 +266,6 @@ function openProductDetail(productId) {
     document.getElementById('detailSelectedText').textContent = product.quantities[0].label;
     document.getElementById('detailCounter').textContent = '1';
 
-    // Обновить иконку избранного
     const favBtn = document.getElementById('detailFavoriteBtn');
     if (favorites.includes(productId)) {
         favBtn.textContent = '❤️';
@@ -276,7 +275,6 @@ function openProductDetail(productId) {
         favBtn.classList.remove('active');
     }
 
-    // Заполнить селектор
     const select = document.getElementById('detailQuantitySelect');
     select.innerHTML = product.quantities.map((q, index) => `
         <option value="${q.value}" data-price="${q.price}" ${index === 0 ? 'selected' : ''}>
@@ -284,53 +282,41 @@ function openProductDetail(productId) {
         </option>
     `).join('');
 
-    // ОБРАБОТЧИК для селектора
     select.onchange = function() {
         const selectedOption = this.options[this.selectedIndex];
-
-        // Обновляем текст
         document.getElementById('detailSelectedText').textContent = selectedOption.text;
-
-        // Сбрасываем счётчик
         detailCounter = 1;
         document.getElementById('detailCounter').textContent = '1';
-
-        // Обновляем цену с учётом счётчика
         updateDetailTotalPrice();
     };
 
-    // Показать модальное окно
     document.getElementById('productDetailModal').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-// Закрыть модальное окно с деталями
 function closeDetailModal() {
     document.getElementById('productDetailModal').classList.remove('active');
     document.body.style.overflow = 'auto';
     currentDetailProduct = null;
 }
 
-// Закрыть при клике на overlay
 function closeDetailModalOnOverlay(event) {
     if (event.target.id === 'productDetailModal') {
         closeDetailModal();
     }
 }
 
-// Переключение выпадающего списка в модальном окне
+// Кастомный dropdown в модалке
 function toggleDetailDropdown() {
     const select = document.getElementById('detailQuantitySelect');
     const wrapper = document.querySelector('.detail-select-with-icon');
 
-    // Удаляем старые dropdown, если есть
     document.querySelectorAll('.custom-dropdown').forEach(d => d.remove());
 
     const dropdown = document.createElement('div');
     dropdown.className = 'custom-dropdown';
 
     const rect = wrapper.getBoundingClientRect();
-
     dropdown.style.position = 'fixed';
     dropdown.style.top = (rect.bottom + 5) + 'px';
     dropdown.style.left = rect.left + 'px';
@@ -363,14 +349,13 @@ function toggleDetailDropdown() {
     }, 0);
 }
 
-// Увеличить счетчик в модальном окне
+// Счётчик в модалке
 function increaseDetailCounter() {
     detailCounter++;
     document.getElementById('detailCounter').textContent = detailCounter;
     updateDetailTotalPrice();
 }
 
-// Уменьшить счетчик в модальном окне
 function decreaseDetailCounter() {
     if (detailCounter > 1) {
         detailCounter--;
@@ -379,17 +364,18 @@ function decreaseDetailCounter() {
     }
 }
 
-// Обновление итоговой цены
+// Пересчёт цены в модалке
 function updateDetailTotalPrice() {
     const select = document.getElementById('detailQuantitySelect');
     const selectedOption = select.options[select.selectedIndex];
     const basePrice = parseInt(selectedOption.dataset.price);
     const totalPrice = basePrice * detailCounter;
 
-    document.getElementById('detailModalPrice').textContent = `${totalPrice} ₫`;
+    document.getElementById('detailModalPrice').textContent =
+        `${formatPrice(totalPrice)} ₫`;
 }
 
-// Переключить избранное в модальном окне
+// Избранное в модалке
 function toggleDetailFavorite() {
     if (!currentDetailProduct) return;
 
@@ -409,7 +395,7 @@ function toggleDetailFavorite() {
     renderProducts();
 }
 
-// Добавить в корзину из модального окна
+// Добавление в корзину из модалки
 function addToCartFromDetail() {
     if (!currentDetailProduct) return;
 
@@ -452,7 +438,7 @@ function addToCartFromDetail() {
     }, 1500);
 }
 
-// Переключение избранного
+// ===== ИЗБРАННОЕ НА КАРТОЧКАХ =====
 function toggleFavorite(productId, event) {
     event.stopPropagation();
     const icon = event.currentTarget;
@@ -468,11 +454,12 @@ function toggleFavorite(productId, event) {
     }
 }
 
-// Функция для выпадающего списка в КАТАЛОГЕ (карточки товаров)
+// ===== КАСТОМНЫЙ ДРОПДАУН НА ГЛАВНОЙ (КАРТОЧКИ) =====
 function toggleDropdown(id) {
     const card = document.querySelector(`.product-card button[onclick="addToCart(${id})"]`).closest('.product-card');
     const select = card.querySelector('select');
     const wrapper = card.querySelector('.select-with-icon');
+    const priceElement = card.querySelector('.product-price');
 
     document.querySelectorAll('.custom-dropdown').forEach(d => d.remove());
 
@@ -480,7 +467,6 @@ function toggleDropdown(id) {
     dropdown.className = 'custom-dropdown';
 
     const rect = wrapper.getBoundingClientRect();
-
     dropdown.style.position = 'absolute';
     dropdown.style.top = (rect.bottom + window.scrollY + 5) + 'px';
     dropdown.style.left = (rect.left + window.scrollX) + 'px';
@@ -495,6 +481,9 @@ function toggleDropdown(id) {
 
             const textDiv = card.querySelector('.select-text');
             if (textDiv) textDiv.textContent = option.text;
+
+            const newPrice = parseInt(option.dataset.price);
+            priceElement.textContent = `${formatPrice(newPrice)} ₫`;
 
             dropdown.remove();
         };
@@ -513,7 +502,7 @@ function toggleDropdown(id) {
     }, 0);
 }
 
-// Добавление в корзину из карточки
+// ===== КОРЗИНА =====
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     const select = document.getElementById(`quantity-${productId}`);
@@ -551,7 +540,6 @@ function addToCart(productId) {
     }, 1000);
 }
 
-// Обновление корзины
 function updateCart() {
     const cartCount = document.getElementById('cartCount');
     const cartItemsContainer = document.getElementById('cartItemsContainer');
@@ -561,7 +549,7 @@ function updateCart() {
     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
     cartCount.textContent = totalItems;
-    cartTotal.textContent = `${totalPrice}₫`;
+    cartTotal.textContent = `${formatPrice(totalPrice)}₫`;
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = `
@@ -577,7 +565,7 @@ function updateCart() {
                 <div class="cart-item-info">
                     <h4>${item.name}</h4>
                     <p style="font-size: 0.85rem; color: #999; margin-bottom: 0.3rem;">${item.size}</p>
-                    <div class="cart-item-price">${item.price}₫</div>
+                    <div class="cart-item-price">${formatPrice(item.price)}₫</div>
                     <div class="cart-item-controls">
                         <button onclick="decreaseQuantity('${item.id}')">−</button>
                         <span class="cart-item-quantity">${item.quantity}</span>
@@ -591,7 +579,6 @@ function updateCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Увеличить количество
 function increaseQuantity(itemId) {
     const item = cart.find(item => item.id === itemId);
     if (item) {
@@ -600,7 +587,6 @@ function increaseQuantity(itemId) {
     }
 }
 
-// Уменьшить количество
 function decreaseQuantity(itemId) {
     const item = cart.find(item => item.id === itemId);
     if (item && item.quantity > 1) {
@@ -609,13 +595,11 @@ function decreaseQuantity(itemId) {
     }
 }
 
-// Удалить из корзины
 function removeFromCart(itemId) {
     cart = cart.filter(item => item.id !== itemId);
     updateCart();
 }
 
-// Переключение корзины
 function toggleCart() {
     const cartModal = document.getElementById('cartModal');
     const cartOverlay = document.getElementById('cartOverlay');
@@ -623,7 +607,7 @@ function toggleCart() {
     cartOverlay.classList.toggle('active');
 }
 
-// Отправка формы обратной связи (контакты)
+// ===== ФОРМА ОБРАТНОЙ СВЯЗИ (НЕ ЗАКАЗ) =====
 function submitOrder() {
     const name = document.getElementById('nameInput').value;
     const phone = document.getElementById('phoneInput').value;
@@ -643,7 +627,7 @@ function submitOrder() {
     document.getElementById('messageInput').value = '';
 }
 
-// Плавная прокрутка
+// ===== ПРОКРУТКА, ESC, ЧЕК-АУТ, КОНТАКТЫ =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -654,17 +638,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Закрытие модального окна по ESC
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeDetailModal();
     }
 });
 
-// Инициализация
+// Инициализация каталога
 renderProducts();
 
-// Модалка оформления заказа (checkout)
+// Модалка оформления заказа
 function openCheckoutModal() {
     if (cart.length === 0) {
         alert('Корзина пуста!');
@@ -691,7 +674,7 @@ document.getElementById('checkoutForm').onsubmit = async function(e) {
     const address = form.address.value;
 
     let orderDetails = cart.map(item =>
-        `${item.name} (${item.size}) x${item.quantity} - ${item.price*item.quantity}₫`
+        `${item.name} (${item.size}) x${item.quantity} - ${formatPrice(item.price*item.quantity)}₫`
     ).join('\n');
     let total = cart.reduce((sum,item)=>sum+item.price*item.quantity, 0);
 
@@ -727,7 +710,7 @@ document.getElementById('checkoutForm').onsubmit = async function(e) {
     }
 };
 
-// Отправка формы контактов (нижняя форма)
+// Нижняя контактная форма
 document.getElementById('contactSubmitBtn').onclick = async function() {
     const name = document.getElementById('nameInput').value.trim();
     const contact = document.getElementById('contactInput').value.trim();
