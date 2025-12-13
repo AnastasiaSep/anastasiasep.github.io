@@ -27,7 +27,7 @@ const products = [
         name: 'Набор "Golden Strawberry"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Эксклюзивный набор клубники, покрытой белым и молочным шоколадом с добавлением съедобного золота.',
-        image: '14.JPG',
+        image: 'golden strawberry.png',
         composition: 'Клубника, молочный шоколад, белый шоколад, пищевое золото',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -48,7 +48,7 @@ const products = [
         name: 'Набор "Клубничная драма"',
         description: 'На фото размер 12 ягод',
         fullDescription: 'Идеальный подарок для любителей изысканных десертов с миксом тёмного, молочного, белого и розового шоколада.',
-        image: '15.JPG',
+        image: 'клубничная драма.png',
         composition: 'Клубника, тёмный шоколад, молочный шоколад, белый шоколад, розовый шоколад, декор',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -173,7 +173,7 @@ const products = [
         name: 'Набор "Only Milk"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Классика. Клубника в молочном шоколаде.',
-        image: '19.JPG',
+        image: 'only milk.png',
         composition: 'Клубника, молочный шоколад',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -194,7 +194,7 @@ const products = [
         name: 'Набор "Only Dark"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Классика. Клубника в тёмном шоколаде.',
-        image: '20.JPG',
+        image: 'only dark.png',
         composition: 'Клубника, тёмный шоколад',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -828,6 +828,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
