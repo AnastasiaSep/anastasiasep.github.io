@@ -4,7 +4,7 @@
 
 * {
     margin: 0;
-    padding: 0;
+    padding: 0;g
     box-sizing: border-box;
 }
 
@@ -731,29 +731,46 @@ h2 {
     border-color: #ff2e93;
 }
 
+/* .product-image-wrapper {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    background: #000;
+} */
 .product-image-wrapper {
     position: relative;
     height: 400px;
     overflow: hidden;
     background: #000;
 }
-
-.product-image {
+/* .product-image {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 8rem;
+} */
+.product-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-.product-image img {
+/* .product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-   
     object-position: top center; /* Это заставит показывать верхнюю часть, а обрезать низ */
 
+} */
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;   /* главное: не cover */
 }
 
 .favorite-icon {
@@ -1344,6 +1361,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
