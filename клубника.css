@@ -758,7 +758,9 @@ h2 {
     max-height: 100%;
     width: auto;
     height: auto;
-    object-fit: contain;   /* главное: не cover */
+    object-fit: cover; 
+   object-position: center;
+
 }
 
 .favorite-icon {
@@ -1349,6 +1351,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
