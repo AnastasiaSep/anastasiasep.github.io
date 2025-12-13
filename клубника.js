@@ -215,7 +215,7 @@ const products = [
         name: 'Набор " Black & Pink"',
         description: 'На фото размер 9 ягод',
         fullDescription: 'Темные ягоды в розовых полосках, розовая клубника в посыпке и тёмные ягоды в кокосе/посыпке',
-        image: 'black pink.png',
+        image: 'black pink.jpg',
         composition: 'Клубника, тёмный шоколад, розовый шоколад',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
@@ -828,6 +828,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
