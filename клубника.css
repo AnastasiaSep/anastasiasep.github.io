@@ -731,34 +731,12 @@ h2 {
     border-color: #ff2e93;
 }
 
-/* .product-image-wrapper {
-    position: relative;
-    height: 400px;
-    overflow: hidden;
-    background: #000;
-} */
 .product-image-wrapper {
     position: relative;
     height: 400px;
     overflow: hidden;
     background: #000;
 }
-/* .product-image {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 8rem;
-} */
-
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-/* 
 
 .product-image {
     width: 100%;
@@ -766,14 +744,15 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-} */
+}
+
 /* .product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center; /* Это заставит показывать верхнюю часть, а обрезать низ */
-
+    object-position: center;
 } */
+
 .product-image img {
     max-width: 100%;
     max-height: 100%;
@@ -1370,6 +1349,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
