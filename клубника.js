@@ -10,14 +10,14 @@ const products = [
         composition: 'Клубника, белый и розовый шоколад, кокосовая стружка, посыпка шарики',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 397000 },
-            { label: '8 ягод',  value: '8',  price: 529000 },
-            { label: '9 ягод',  value: '9',  price: 595000 },
-            { label: '12 ягод', value: '12', price: 793000 },
-            { label: '16 ягод', value: '16', price: 1057000 },
-            { label: '18 ягод', value: '18', price: 1190000 },
-            { label: '24 ягоды', value: '24', price: 1586000 },
-            { label: '27 ягоды', value: '27', price: 1784000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
 
@@ -31,14 +31,14 @@ const products = [
         composition: 'Клубника, молочный шоколад, белый шоколад, пищевое золото',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 372000 },
-            { label: '8 ягод',  value: '8',  price: 497000 },
-            { label: '9 ягод',  value: '9',  price: 559000 },
-            { label: '12 ягод', value: '12', price: 745000 },
-            { label: '16 ягод', value: '16', price: 993000 },
-            { label: '18 ягод', value: '18', price: 1117000 },
-            { label: '24 ягоды', value: '24', price: 1490000 },
-            { label: '27 ягоды', value: '27', price: 1676000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
 
@@ -52,14 +52,14 @@ const products = [
         composition: 'Клубника, тёмный шоколад, молочный шоколад, белый шоколад, розовый шоколад, декор',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 385000 },
-            { label: '8 ягод',  value: '8',  price: 513000 },
-            { label: '9 ягод',  value: '9',  price: 577000 },
-            { label: '12 ягод', value: '12', price: 771000 },
-            { label: '16 ягод', value: '16', price: 1025000 },
-            { label: '18 ягод', value: '18', price: 1153000 },
-            { label: '24 ягоды', value: '24', price: 1538000 },
-            { label: '27 ягоды', value: '27', price: 1730000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
 
@@ -73,14 +73,14 @@ const products = [
         composition: 'Клубника, тёмный шоколад, молочный шоколад, кокосовая стружка, золотая посыпка',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 373000 },
-            { label: '8 ягод',  value: '8',  price: 498000 },
-            { label: '9 ягод',  value: '9',  price: 560000 },
-            { label: '12 ягод', value: '12', price: 747000 },
-            { label: '16 ягод', value: '16', price: 996000 },
-            { label: '18 ягод', value: '18', price: 1120000 },
-            { label: '24 ягоды', value: '24', price: 1493000 },
-            { label: '27 ягоды', value: '27', price: 1680000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
 
@@ -94,14 +94,14 @@ const products = [
         composition: 'Клубника, молочный шоколад, белый шоколад, печенье, розовый декор',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 372000 },
-            { label: '8 ягод',  value: '8',  price: 497000 },
-            { label: '9 ягод',  value: '9',  price: 559000 },
-            { label: '12 ягод', value: '12', price: 745000 },
-            { label: '16 ягод', value: '16', price: 993000 },
-            { label: '18 ягод', value: '18', price: 1117000 },
-            { label: '24 ягоды', value: '24', price: 1490000 },
-            { label: '27 ягоды', value: '27', price: 1676000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
 
@@ -115,14 +115,14 @@ const products = [
         composition: 'Клубника, молочный шоколад, тёмный шоколад, кокосовая стружка',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 373000 },
-            { label: '8 ягод',  value: '8',  price: 498000 },
-            { label: '9 ягод',  value: '9',  price: 560000 },
-            { label: '12 ягод', value: '12', price: 747000 },
-            { label: '16 ягод', value: '16', price: 996000 },
-            { label: '18 ягод', value: '18', price: 1120000 },
-            { label: '24 ягоды', value: '24', price: 1493000 },
-            { label: '27 ягоды', value: '27', price: 1680000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
 
@@ -136,14 +136,14 @@ const products = [
         composition: 'Клубника, белый шоколад, молочный шоколад, кокосовая стружка, посыпка шарики, золото',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 385000 },
-            { label: '8 ягод',  value: '8',  price: 513000 },
-            { label: '9 ягод',  value: '9',  price: 583000 },
-            { label: '12 ягод', value: '12', price: 771000 },
-            { label: '16 ягод', value: '16', price: 1025000 },
-            { label: '18 ягод', value: '18', price: 1153000 },
-            { label: '24 ягоды', value: '24', price: 1538000 },
-            { label: '27 ягоды', value: '27', price: 1730000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
 
@@ -157,14 +157,14 @@ const products = [
         composition: 'Клубника, тёмный шоколад, белый шоколад, молочный шоколад, золотая посыпка',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 385000 },
-            { label: '8 ягод',  value: '8',  price: 513000 },
-            { label: '9 ягод',  value: '9',  price: 571000 },
-            { label: '12 ягод', value: '12', price: 761000 },
-            { label: '16 ягод', value: '16', price: 1011000 },
-            { label: '18 ягод', value: '18', price: 1138000 },
-            { label: '24 ягоды', value: '24', price: 1515000 },
-            { label: '27 ягоды', value: '27', price: 1707000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
        // 9. Only Milk (Classic):
@@ -177,14 +177,14 @@ const products = [
         composition: 'Клубника, молочный шоколад',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 385000 },
-            { label: '8 ягод',  value: '8',  price: 513000 },
-            { label: '9 ягод',  value: '9',  price: 583000 },
-            { label: '12 ягод', value: '12', price: 771000 },
-            { label: '16 ягод', value: '16', price: 1025000 },
-            { label: '18 ягод', value: '18', price: 1153000 },
-            { label: '24 ягоды', value: '24', price: 1538000 },
-            { label: '27 ягоды', value: '27', price: 1730000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
     
@@ -198,14 +198,14 @@ const products = [
         composition: 'Клубника, тёмный шоколад',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 385000 },
-            { label: '8 ягод',  value: '8',  price: 513000 },
-            { label: '9 ягод',  value: '9',  price: 583000 },
-            { label: '12 ягод', value: '12', price: 771000 },
-            { label: '16 ягод', value: '16', price: 1025000 },
-            { label: '18 ягод', value: '18', price: 1153000 },
-            { label: '24 ягоды', value: '24', price: 1538000 },
-            { label: '27 ягоды', value: '27', price: 1730000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
 
@@ -219,14 +219,14 @@ const products = [
         composition: 'Клубника, тёмный шоколад, розовый шоколад',
         sizes: '6 ягод | 8 ягод | 9 ягод | 12 ягод | 16 ягод | 18 ягод | 24 ягоды | 27 ягоды',
         quantities: [
-            { label: '6 ягод',  value: '6',  price: 385000 },
-            { label: '8 ягод',  value: '8',  price: 513000 },
-            { label: '9 ягод',  value: '9',  price: 583000 },
-            { label: '12 ягод', value: '12', price: 771000 },
-            { label: '16 ягод', value: '16', price: 1025000 },
-            { label: '18 ягод', value: '18', price: 1153000 },
-            { label: '24 ягоды', value: '24', price: 1538000 },
-            { label: '27 ягоды', value: '27', price: 1730000 }
+            { label: '6 ягод',  value: '6',  price: 370000 },
+            { label: '8 ягод',  value: '8',  price: 490000 },
+            { label: '9 ягод',  value: '9',  price: 550000 },
+            { label: '12 ягод', value: '12', price: 730000 },
+            { label: '16 ягод', value: '16', price: 970000 },
+            { label: '18 ягод', value: '18', price: 1080000 },
+            { label: '24 ягоды', value: '24', price: 1240000 },
+            { label: '27 ягоды', value: '27', price: 1320000 }
         ]
     },
 
@@ -828,6 +828,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
