@@ -130,11 +130,13 @@ nav a:hover {
     transition: all 0.3s;
     z-index: 1999;
     backdrop-filter: blur(2px);
+    pointer-events: none;
 }
 
 .cart-overlay.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: none;
 }
 
 .cart-header {
@@ -1343,6 +1345,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
