@@ -16,8 +16,8 @@ const products = [
             { label: '12 ягод', value: '12', price: 730000 },
             { label: '16 ягод', value: '16', price: 970000 },
             { label: '18 ягод', value: '18', price: 1080000 },
-            { label: '24 ягоды', value: '24', price: 1240000 },
-            { label: '27 ягоды', value: '27', price: 1320000 }
+            { label: '24 ягоды', value: '24', price: 1240000, oldPrice: 1460000 },
+            { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1320000 }
         ]
     },
 
@@ -828,6 +828,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
