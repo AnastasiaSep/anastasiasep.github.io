@@ -136,7 +136,7 @@ nav a:hover {
 .cart-overlay.active {
     opacity: 1;
     visibility: visible;
-    pointer-events: none;
+    pointer-events: auto;  
 }
 
 .cart-header {
@@ -332,11 +332,13 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    pointer-events: none; 
 }
 
 .product-detail-modal.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .product-detail-content {
@@ -1345,6 +1347,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
