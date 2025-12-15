@@ -691,14 +691,25 @@ function submitOrder() {
 }
 
 // ===== ПРОКРУТКА, ESC, ЧЕК-АУТ, КОНТАКТЫ =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        // if (target) {
-        //     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // }
-    });
+// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//     anchor.addEventListener('click', function (e) {
+//         e.preventDefault();
+//         const target = document.querySelector(this.getAttribute('href'));
+//         // if (target) {
+//         //     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+//         // }
+//     });
+// });
+
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const id = link.getAttribute('href').slice(1); // 'about'
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
 });
 
 document.addEventListener('keydown', function(e) {
@@ -828,6 +839,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
