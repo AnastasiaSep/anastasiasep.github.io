@@ -1385,6 +1385,22 @@ footer p {
 
 
 
+.old-price {
+    text-decoration: line-through;
+    opacity: 0.6;
+    margin-right: 0.35em;
+    font-size: 0.9em;
+}
+
+.new-price {
+    color: #f97316; /* или твой акцентный цвет */
+    font-weight: 600;
+}
+
+
+
+
+
 
 
 
