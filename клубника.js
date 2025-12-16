@@ -15,7 +15,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -36,7 +36,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -57,7 +57,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -78,7 +78,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -99,7 +99,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -120,7 +120,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -141,7 +141,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -162,7 +162,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -182,7 +182,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -203,7 +203,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -224,7 +224,7 @@ const products = [
             { label: '9 ягод',  value: '9',  price: 465000, oldPrice: 550000 },
             { label: '12 ягод', value: '12', price: 620000, oldPrice: 730000 },
             { label: '16 ягод', value: '16', price: 830000, oldPrice:970000 },
-            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1460000 },
+            { label: '18 ягод', value: '18', price: 920000, oldPrice: 1080000 },
             { label: '24 ягоды', value: '24', price: 1170000, oldPrice: 1460000 },
             { label: '27 ягоды', value: '27', price: 1320000, oldPrice: 1650000 }
         ]
@@ -838,6 +838,7 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
+
 
 
 
