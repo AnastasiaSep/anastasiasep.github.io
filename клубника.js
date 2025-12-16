@@ -232,6 +232,7 @@ const products = [
 
 ];
 
+
 // ===== КОРЗИНА И ОБЩИЕ ПЕРЕМЕННЫЕ =====
 let cart = [];
 const savedCart = localStorage.getItem('cart');
@@ -251,7 +252,7 @@ let detailCounter = 1;
 
 // Форматирование цен с разделителями
 function formatPrice(value) {
-    return value.toLocaleString('ru-RU'); // 1 493 000
+    return value.toLocaleString('ru-RU');
 }
 
 // ===== ОТРИСОВКА ТОВАРОВ НА ГЛАВНОЙ =====
@@ -272,7 +273,12 @@ function renderProducts() {
                 <p class="product-description">${product.description}</p>
 
                 <div class="product-price">
-                    ${formatPrice(product.quantities[0].price)} ₫
+                    <span class="old-price">
+                        ${formatPrice(product.quantities[0].oldPrice)} ₫
+                    </span>
+                    <span class="new-price">
+                        ${formatPrice(product.quantities[0].price)} ₫
+                    </span>
                 </div>
 
                 <div class="quantity-selector">
@@ -318,8 +324,16 @@ function openProductDetail(productId) {
     document.getElementById('detailModalImage').innerHTML =
         `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
     document.getElementById('detailModalTitle').textContent = product.name;
-    document.getElementById('detailModalPrice').textContent =
-        `${formatPrice(product.quantities[0].price)} ₫`;
+
+    document.getElementById('detailModalPrice').innerHTML = `
+        <span class="old-price">
+            ${formatPrice(product.quantities[0].oldPrice)} ₫
+        </span>
+        <span class="new-price">
+            ${formatPrice(product.quantities[0].price)} ₫
+        </span>
+    `;
+
     document.getElementById('detailDescription').textContent = product.fullDescription;
     document.getElementById('detailSizes').innerHTML =
         product.sizes + '<br>Точное количество ягод зависит от размера ягоды';
@@ -434,8 +448,14 @@ function updateDetailTotalPrice() {
     const basePrice = parseInt(selectedOption.dataset.price);
     const totalPrice = basePrice * detailCounter;
 
-    document.getElementById('detailModalPrice').textContent =
-        `${formatPrice(totalPrice)} ₫`;
+    const product = currentDetailProduct;
+    const selected = product.quantities.find(q => q.value === selectedOption.value);
+    const oldTotal = selected.oldPrice * detailCounter;
+
+    document.getElementById('detailModalPrice').innerHTML = `
+        <span class="old-price">${formatPrice(oldTotal)} ₫</span>
+        <span class="new-price">${formatPrice(totalPrice)} ₫</span>
+    `;
 }
 
 // Избранное в модалке
@@ -519,6 +539,9 @@ function toggleFavorite(productId, event) {
 
 // ===== КАСТОМНЫЙ ДРОПДАУН НА ГЛАВНОЙ (КАРТОЧКИ) =====
 function toggleDropdown(id) {
+    const productId = id;
+    const currentProduct = products.find(p => p.id === productId);
+
     const card = document.querySelector(`.product-card button[onclick="addToCart(${id})"]`).closest('.product-card');
     const select = card.querySelector('select');
     const wrapper = card.querySelector('.select-with-icon');
@@ -545,8 +568,14 @@ function toggleDropdown(id) {
             const textDiv = card.querySelector('.select-text');
             if (textDiv) textDiv.textContent = option.text;
 
-            const newPrice = parseInt(option.dataset.price);
-            priceElement.textContent = `${formatPrice(newPrice)} ₫`;
+            const newPrice  = parseInt(option.dataset.price);
+            const oldPrice  = currentProduct.quantities
+                .find(q => q.value === option.value).oldPrice;
+
+            priceElement.innerHTML = `
+                <span class="old-price">${formatPrice(oldPrice)} ₫</span>
+                <span class="new-price">${formatPrice(newPrice)} ₫</span>
+            `;
 
             dropdown.remove();
         };
@@ -670,41 +699,11 @@ function toggleCart() {
     cartOverlay.classList.toggle('active');
 }
 
-// ===== ФОРМА ОБРАТНОЙ СВЯЗИ (НЕ ЗАКАЗ) =====
-function submitOrder() {
-    const name = document.getElementById('nameInput').value;
-    const phone = document.getElementById('phoneInput').value;
-    const email = document.getElementById('emailInput').value;
-    const message = document.getElementById('messageInput').value;
-
-    if (!name || !phone || !email || !message) {
-        alert('Пожалуйста, заполните все поля!');
-        return;
-    }
-
-    alert(`Спасибо, ${name}! Ваше сообщение отправлено. Мы свяжемся с вами по телефону ${phone}.`);
-
-    document.getElementById('nameInput').value = '';
-    document.getElementById('phoneInput').value = '';
-    document.getElementById('emailInput').value = '';
-    document.getElementById('messageInput').value = '';
-}
-
 // ===== ПРОКРУТКА, ESC, ЧЕК-АУТ, КОНТАКТЫ =====
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//     anchor.addEventListener('click', function (e) {
-//         e.preventDefault();
-//         const target = document.querySelector(this.getAttribute('href'));
-//         // if (target) {
-//         //     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-//         // }
-//     });
-// });
-
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
-    const id = link.getAttribute('href').slice(1); // 'about'
+    const id = link.getAttribute('href').slice(1);
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -839,7 +838,6 @@ function clearContactForm() {
     document.getElementById('emailInput').value = '';
     document.getElementById('messageInput').value = '';
 }
-
 
 
 
